@@ -393,7 +393,7 @@
       </div>
 
       <div class="btn-box">
-        <a href="javascript:void(0);">
+        <a href="/checkout">
           Proceed to Checkout
         </a>
       </div>

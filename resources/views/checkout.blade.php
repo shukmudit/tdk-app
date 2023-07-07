@@ -150,7 +150,7 @@
       <div class="row">
         <div class="col-md-6">
           <div class="form_container">
-            <form action="">
+            <form action="/order_confirmed">
               <div>
                 <input type="text" class="form-control" placeholder="Your Name" />
               </div>
@@ -188,9 +188,9 @@
              {{--  <div>
                 <input type="date" class="form-control">
               </div> --}}
-              <div class="btn_box">
-                <button>
-                 Place Order
+              <div class="btn-box">
+                <button type="submit">
+                  Place Order
                 </button>
               </div>
             </form>

@@ -165,10 +165,11 @@
               padding: 10px;
           ">
                 <h5>
-                  Tasty Burger
+                 Thank You
                 </h5>
                 <p>
-                  Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                 Your will get a Call or Message regarding Order Confirmation after that Order will be delievered within 30 minutes.
+                 
                 </p>
                
               </div>
