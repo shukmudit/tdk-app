@@ -11,9 +11,9 @@
   <meta name="keywords" content="" />
   <meta name="description" content="" />
   <meta name="author" content="" />
-  <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="">
+  <link rel="shortcut icon" href="images/favicon.png" type="">
 
-  <title> The Delight Kingdom | Checkout </title>
+  <title> The Delight Kingdom | Cart </title>
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
@@ -139,95 +139,268 @@
     <!-- end header section -->
   </div>
 
-  <!-- book section -->
-  <section class="book_section layout_padding">
+  <!-- food section -->
+
+  <section class="food_section layout_padding">
     <div class="container">
-      <div class="heading_container">
+      <div class="heading_container heading_center">
         <h2>
-         Checkout
+          Cart
         </h2>
       </div>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="form_container">
-            <form action="">
-              <div>
-                <input type="text" class="form-control" placeholder="Your Name" />
-              </div>
-              <div>
-                <input type="text" class="form-control" placeholder="Phone Number" />
-              </div>
-              <div>
-                <input type="text" class="form-control" placeholder="Flat No and Tower" />
-              </div>
-              <div>
-                <input type="text" class="form-control" placeholder="Appartment Name" />
-              </div>
-              <div>
-                <input type="text" class="form-control" placeholder="CROSSING REPUBLIK,GHAZIABAD" readonly/>
-              </div>
-              {{-- <div>
-                <select class="form-control nice-select wide">
-                  <option value="" disabled selected>
-                    How many persons?
-                  </option>
-                  <option value="">
-                    2
-                  </option>
-                  <option value="">
-                    3
-                  </option>
-                  <option value="">
-                    4
-                  </option>
-                  <option value="">
-                    5
-                  </option>
-                </select>
-              </div> --}}
-             {{--  <div>
-                <input type="date" class="form-control">
-              </div> --}}
-              <div class="btn_box">
-                <button>
-                 Place Order
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-        <div class="col-md-6">
-          {{-- <div class="map_container ">
-            <div id="googleMap"></div>
-          </div> --}}
 
-          <div class="box">
-            <div>
-              <div class="img-box" style="
-              text-align: center;
-          ">
-                <img src="{{ asset('images/f8.png')}}" alt="logo">
+      <ul class="filters_menu">
+        <li class="active" data-filter="*">All</li>
+        <li data-filter=".burger">Burger</li>
+        <li data-filter=".pizza">Pizza</li>
+        <li data-filter=".pasta">Pasta</li>
+        <li data-filter=".fries">Fries</li>
+      </ul>
+
+      <div class="filters-content">
+        <div class="row grid">
+          <div class="col-sm-6 col-lg-4 all pizza">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="images/f1.png" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Delicious Pizza
+                  </h5>
+                  <p>
+                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                  </p>
+                  <div class="options">
+                    <h6>
+                      Rs.20/- x 1
+                    </h6>
+                    <a href="javascript:void(0);" class="user_link">
+                      <i class="fa fa-minus" aria-hidden="true"></i>
+                    </a> 
+                  </div>
+                </div>
               </div>
-              <div class="detail-box" style="
-              border-top-style: solid;
-              border-bottom-style: solid;
-              padding: 10px;
-          ">
-                <h5>
-                  Tasty Burger
-                </h5>
-                <p>
-                  Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
-                </p>
-               
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all burger">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="images/f2.png" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Delicious Burger
+                  </h5>
+                  <p>
+                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                  </p>
+                  <div class="options">
+                    <h6>
+                      Rs.15/- x 2
+                    </h6>
+                    <a href="javascript:void(0);" class="user_link">
+                      <i class="fa fa-minus" aria-hidden="true"></i>
+                    </a> 
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all pizza">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="images/f3.png" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Delicious Pizza
+                  </h5>
+                  <p>
+                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                  </p>
+                  <div class="options">
+                    <h6>
+                      Rs.17/- x 5
+                    </h6>
+                    <a href="javascript:void(0);" class="user_link">
+                      <i class="fa fa-minus" aria-hidden="true"></i>
+                    </a> 
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all pasta">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="images/f4.png" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Delicious Pasta
+                  </h5>
+                  <p>
+                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                  </p>
+                  <div class="options">
+                    <h6>
+                      Rs.16/- x 4
+                    </h6>
+                    <a href="javascript:void(0);" class="user_link">
+                      <i class="fa fa-minus" aria-hidden="true"></i>
+                    </a> 
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all fries">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="images/f5.png" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    French Fries
+                  </h5>
+                  <p>
+                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                  </p>
+                  <div class="options">
+                    <h6>
+                      Rs.50/- x 3
+                    </h6>
+                    <a href="javascript:void(0);" class="user_link">
+                      <i class="fa fa-minus" aria-hidden="true"></i>
+                    </a> 
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all pizza">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="images/f6.png" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Delicious Pizza
+                  </h5>
+                  <p>
+                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                  </p>
+                  <div class="options">
+                    <h6>
+                      Rs.15/- x 2
+                    </h6>
+                    <a href="javascript:void(0);" class="user_link">
+                      <i class="fa fa-minus" aria-hidden="true"></i>
+                    </a> 
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all burger">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="images/f7.png" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Tasty Burger
+                  </h5>
+                  <p>
+                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                  </p>
+                  <div class="options">
+                    <h6>
+                      Rs.70/- x 2
+                    </h6>
+                    <a href="javascript:void(0);" class="user_link">
+                      <i class="fa fa-minus" aria-hidden="true"></i>
+                    </a> 
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all burger">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="images/f8.png" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Tasty Burger
+                  </h5>
+                  <p>
+                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                  </p>
+                  <div class="options">
+                    <h6>
+                      Rs.90/- x 7
+                    </h6>
+                    <a href="javascript:void(0);" class="user_link">
+                      <i class="fa fa-minus" aria-hidden="true"></i>
+                    </a> 
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 all pasta">
+            <div class="box">
+              <div>
+                <div class="img-box">
+                  <img src="images/f9.png" alt="">
+                </div>
+                <div class="detail-box">
+                  <h5>
+                    Delicious Pasta
+                  </h5>
+                  <p>
+                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                  </p>
+                  <div class="options">
+                    <h6>
+                     Rs.70/- x 7
+                    </h6>
+                    <a href="javascript:void(0);" class="user_link">
+                      <i class="fa fa-minus" aria-hidden="true"></i>
+                    </a> 
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <div class="heading_container heading_center">
+        <h2>
+          Total Amount Payable : Rs. 1100/- Only
+        </h2>
+      </div>
+
+      <div class="btn-box">
+        <a href="javascript:void(0);">
+          Proceed to Checkout
+        </a>
+      </div>
     </div>
   </section>
-  <!-- end book section -->
+
+  <!-- end food section -->
 
   <!-- footer section -->
   <footer class="footer_section">
