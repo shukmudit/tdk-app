@@ -11,9 +11,9 @@
   <meta name="keywords" content="" />
   <meta name="description" content="" />
   <meta name="author" content="" />
-  <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}" type="">
+  <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="">
 
-  <title> Burger Home </title>
+  <title> The Delight Kingdom </title>
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.css') }}" />
@@ -42,9 +42,15 @@
     <header class="header_section">
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="index.html">
+          <a class="navbar-brand" href="/">
+            
+              <img src="{{ asset('images/tdk-icon.jpg')}}" alt="logo" style="
+              height: 50px;
+              border-radius: 5px;
+          ">
+           
             <span>
-              Burger Home
+              The Delight Kingdom
             </span>
           </a>
 
@@ -55,22 +61,22 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  mx-auto ">
               <li class="nav-item active">
-                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="menu.html">Menu</a>
+                <a class="nav-link" href="#menu">Menu</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.html">About</a>
+                <a class="nav-link" href="#about">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="book.html">Book Table</a>
+                <a class="nav-link" href="#review">Reviews</a>
               </li>
             </ul>
             <div class="user_option">
-              <a href="" class="user_link">
+              {{-- <a href="" class="user_link">
                 <i class="fa fa-user" aria-hidden="true"></i>
-              </a>
+              </a> --}}
               <a class="cart_link" href="#">
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                   <g>
@@ -125,14 +131,14 @@
                   </g>
                 </svg>
               </a>
-              <form class="form-inline">
+             {{--  <form class="form-inline">
                 <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
                   <i class="fa fa-search" aria-hidden="true"></i>
                 </button>
               </form>
               <a href="" class="order_online">
                 Order Online
-              </a>
+              </a> --}}
             </div>
           </div>
         </nav>
@@ -155,7 +161,7 @@
                       Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
                     </p>
                     <div class="btn-box">
-                      <a href="" class="btn1">
+                      <a href="#menu" class="btn1">
                         Order Now
                       </a>
                     </div>
@@ -176,7 +182,7 @@
                       Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
                     </p>
                     <div class="btn-box">
-                      <a href="" class="btn1">
+                      <a href="#menu" class="btn1">
                         Order Now
                       </a>
                     </div>
@@ -197,7 +203,7 @@
                       Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
                     </p>
                     <div class="btn-box">
-                      <a href="" class="btn1">
+                      <a href="#menu" class="btn1">
                         Order Now
                       </a>
                     </div>
@@ -222,7 +228,7 @@
 
   <!-- offer section -->
 
-  <section class="offer_section layout_padding-bottom">
+ {{--  <section class="offer_section layout_padding-bottom">
     <div class="offer_container">
       <div class="container ">
         <div class="row">
@@ -367,14 +373,14 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> --}}
 
   <!-- end offer section -->
 
   <!-- food section -->
 
   <section class="food_section layout_padding-bottom">
-    <div class="container">
+    <div class="container" id="menu">
       <div class="heading_container heading_center">
         <h2>
           Our Menu
@@ -1090,7 +1096,7 @@
   <!-- about section -->
 
   <section class="about_section layout_padding">
-    <div class="container  ">
+    <div class="container" id="about">
 
       <div class="row">
         <div class="col-md-6 ">
@@ -1102,7 +1108,7 @@
           <div class="detail-box">
             <div class="heading_container">
               <h2>
-                We Are Burger Home
+                We Are "The Delight Kingdom"
               </h2>
             </div>
             <p>
@@ -1123,7 +1129,7 @@
   <!-- end about section -->
 
   <!-- book section -->
-  <section class="book_section layout_padding">
+ {{--  <section class="book_section layout_padding">
     <div class="container">
       <div class="heading_container">
         <h2>
@@ -1180,13 +1186,13 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> --}}
   <!-- end book section -->
 
   <!-- client section -->
 
   <section class="client_section layout_padding-bottom">
-    <div class="container">
+    <div class="container" id="review">
       <div class="heading_container heading_center psudo_white_primary mb_45">
         <h2>
           What Says Our Customers
@@ -1250,19 +1256,19 @@
               <a href="">
                 <i class="fa fa-map-marker" aria-hidden="true"></i>
                 <span>
-                  Location
+                  CROSSING REPUBLIK, GHAZIABAD
                 </span>
               </a>
               <a href="">
                 <i class="fa fa-phone" aria-hidden="true"></i>
                 <span>
-                  Call +91 7017312962
+                  Call +91 7302536237
                 </span>
               </a>
               <a href="">
                 <i class="fa fa-envelope" aria-hidden="true"></i>
                 <span>
-                  burgerhome@gmail.com
+                  thedelightkingdom@gmail.com
                 </span>
               </a>
             </div>
@@ -1271,7 +1277,7 @@
         <div class="col-md-4 footer-col">
           <div class="footer_detail">
             <a href="" class="footer-logo">
-              Burger Home
+              The Delight Kingdom
             </a>
             <p>
               Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with
@@ -1303,13 +1309,13 @@
             Everyday
           </p>
           <p>
-            10.00 AM -10.00 PM
+            07:00 AM - 11:00 PM
           </p>
         </div>
       </div>
       <div class="footer-info">
         <p>
-          &copy; <span id="displayYear"></span> All Rights Reserved By Burger Home<br><br>
+          &copy; <span id="displayYear"></span> All Rights Reserved By The Delight Kingdom<br><br>
         
         </p>
       </div>

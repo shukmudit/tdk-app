@@ -11,7 +11,7 @@
   <meta name="keywords" content="" />
   <meta name="description" content="" />
   <meta name="author" content="" />
-  <link rel="shortcut icon" href="images/favicon.png" type="">
+  <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="">
 
   <title> Feane </title>
 
@@ -42,9 +42,15 @@
     <header class="header_section">
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="index.html">
+          <a class="navbar-brand" href="/">
+            
+              <img src="{{ asset('images/tdk-icon.jpg')}}" alt="logo" style="
+              height: 50px;
+              border-radius: 5px;
+          ">
+           
             <span>
-              Feane
+              The Delight Kingdom
             </span>
           </a>
 
@@ -52,25 +58,17 @@
             <span class=""> </span>
           </button>
 
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <div class="collapse navbar-collapse" id="navbarSupportedContent" >
             <ul class="navbar-nav  mx-auto ">
-              <li class="nav-item">
-                <a class="nav-link" href="index.html">Home </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="menu.html">Menu</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="about.html">About</a>
-              </li>
               <li class="nav-item active">
-                <a class="nav-link" href="book.html">Book Table <span class="sr-only">(current)</span> </a>
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
               </li>
+            
             </ul>
             <div class="user_option">
-              <a href="" class="user_link">
+              {{-- <a href="" class="user_link">
                 <i class="fa fa-user" aria-hidden="true"></i>
-              </a>
+              </a> --}}
               <a class="cart_link" href="#">
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                   <g>
@@ -125,14 +123,14 @@
                   </g>
                 </svg>
               </a>
-              <form class="form-inline">
+             {{--  <form class="form-inline">
                 <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
                   <i class="fa fa-search" aria-hidden="true"></i>
                 </button>
               </form>
               <a href="" class="order_online">
                 Order Online
-              </a>
+              </a> --}}
             </div>
           </div>
         </nav>
@@ -146,55 +144,63 @@
     <div class="container">
       <div class="heading_container">
         <h2>
-          Book A Table
+         Order Placed
         </h2>
       </div>
       <div class="row">
         <div class="col-md-6">
-          <div class="form_container">
-            <form action="">
-              <div>
-                <input type="text" class="form-control" placeholder="Your Name" />
+          <div class="box">
+            <div>
+              <div class="img-box" style="
+              text-align: center;
+          ">
+                <img src="{{ asset('images/order_placed.png')}}" alt="logo" style="
+                height: 214px;
+                border-radius: 10px;
+            ">
               </div>
-              <div>
-                <input type="text" class="form-control" placeholder="Phone Number" />
+              <div class="detail-box" style="
+              border-top-style: solid;
+              border-bottom-style: solid;
+              padding: 10px;
+          ">
+                <h5>
+                  Tasty Burger
+                </h5>
+                <p>
+                  Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                </p>
+               
               </div>
-              <div>
-                <input type="email" class="form-control" placeholder="Your Email" />
-              </div>
-              <div>
-                <select class="form-control nice-select wide">
-                  <option value="" disabled selected>
-                    How many persons?
-                  </option>
-                  <option value="">
-                    2
-                  </option>
-                  <option value="">
-                    3
-                  </option>
-                  <option value="">
-                    4
-                  </option>
-                  <option value="">
-                    5
-                  </option>
-                </select>
-              </div>
-              <div>
-                <input type="date" class="form-control">
-              </div>
-              <div class="btn_box">
-                <button>
-                  Book Now
-                </button>
-              </div>
-            </form>
+            </div>
           </div>
         </div>
         <div class="col-md-6">
-          <div class="map_container ">
+          {{-- <div class="map_container ">
             <div id="googleMap"></div>
+          </div> --}}
+
+          <div class="box">
+            <div>
+              <div class="img-box" style="
+              text-align: center;
+          ">
+                <img src="{{ asset('images/f8.png')}}" alt="logo">
+              </div>
+              <div class="detail-box" style="
+              border-top-style: solid;
+              border-bottom-style: solid;
+              padding: 10px;
+          ">
+                <h5>
+                  Tasty Burger
+                </h5>
+                <p>
+                  Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                </p>
+               
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -215,19 +221,19 @@
               <a href="">
                 <i class="fa fa-map-marker" aria-hidden="true"></i>
                 <span>
-                  Location
+                  CROSSING REPUBLIK, GHAZIABAD
                 </span>
               </a>
               <a href="">
                 <i class="fa fa-phone" aria-hidden="true"></i>
                 <span>
-                  Call +01 1234567890
+                  Call +91 7302536237
                 </span>
               </a>
               <a href="">
                 <i class="fa fa-envelope" aria-hidden="true"></i>
                 <span>
-                  demo@gmail.com
+                  thedelightkingdom@gmail.com
                 </span>
               </a>
             </div>
@@ -236,7 +242,7 @@
         <div class="col-md-4 footer-col">
           <div class="footer_detail">
             <a href="" class="footer-logo">
-              Feane
+              The Delight Kingdom
             </a>
             <p>
               Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with
@@ -268,16 +274,14 @@
             Everyday
           </p>
           <p>
-            10.00 Am -10.00 Pm
+            07:00 AM - 11:00 PM
           </p>
         </div>
       </div>
       <div class="footer-info">
         <p>
-          &copy; <span id="displayYear"></span> All Rights Reserved By
-          <a href="https://html.design/">Free Html Templates</a><br><br>
-          &copy; <span id="displayYear"></span> Distributed By
-          <a href="https://themewagon.com/" target="_blank">ThemeWagon</a>
+          &copy; <span id="displayYear"></span> All Rights Reserved By The Delight Kingdom<br><br>
+        
         </p>
       </div>
     </div>
