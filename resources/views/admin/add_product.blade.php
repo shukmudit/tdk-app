@@ -261,7 +261,7 @@
                   </div>
                   <div class="form-group" data-select2-id="29">
                     <label>Category</label>
-                    <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" name="product_cat">
+                    <select class="form-control select2 select2-hidden-accessible product_cat" style="width: 100%;" name="product_cat">
                       <option selected="selected" value="burger">Burger</option>
                       <option value="pizza">Pizza</option>
                       <option value="sandwich">Sandwich</option>

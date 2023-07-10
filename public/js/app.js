@@ -27666,10 +27666,11 @@ function add_product_image(product_info) {
   var metadata = {
     contentType: 'image/png'
   };
-
+  var file = $("#product_image")[0].files[0];
+  alert(file.name);
   // Upload file and metadata to the object 'images/mountains.jpg'
-  var storageRef = (0,firebase_storage__WEBPACK_IMPORTED_MODULE_3__.ref)(storage, 'images/' + product_info[4].name);
-  var uploadTask = (0,firebase_storage__WEBPACK_IMPORTED_MODULE_3__.uploadBytesResumable)(storageRef, product_info[4], metadata);
+  var storageRef = (0,firebase_storage__WEBPACK_IMPORTED_MODULE_3__.ref)(storage, 'images/' + file.name);
+  var uploadTask = (0,firebase_storage__WEBPACK_IMPORTED_MODULE_3__.uploadBytesResumable)(storageRef, file, metadata);
 
   // Listen for state changes, errors, and completion of the upload.
   uploadTask.on('state_changed', function (snapshot) {
@@ -27722,9 +27723,9 @@ function _add_product_info() {
           _context2.next = 3;
           return (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.addDoc)((0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.collection)(db, "product_table"), {
             name: product_info[0],
-            category: product_info[1],
-            descp: product_info[2],
-            price: product_info[3],
+            category: product_info[3],
+            descp: product_info[1],
+            price: product_info[2],
             time: Date(),
             image: downloadURL
           });
@@ -27752,6 +27753,9 @@ $("#add-product-form").on("submit", function (event) {
     product_info.push($(this).val());
     alert($(this).val());
   });
+  var product_cat = $(".product_cat").val();
+  alert(product_cat);
+  product_info.push(product_cat);
   add_product_image(product_info);
   event.preventDefault();
 });
