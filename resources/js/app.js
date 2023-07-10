@@ -35,6 +35,7 @@ const firebaseConfig = {
         locality:cust_info[4]
       });
       console.log("Document written with ID: ", docRef.id);
+      window.location.href = '/order_confirmed';
     } catch (e) {
       console.error("Error adding document: ", e);
     }
@@ -43,7 +44,7 @@ const firebaseConfig = {
 
 
   $( "#checkout-form" ).on( "submit", function( event ) {
-    alert("Submitted");
+   // alert("Submitted");
     const cust_info = [];
     $("input[type='text']").each(function () {    
        cust_info.push($(this).val())
@@ -59,7 +60,7 @@ const metadata = {
     contentType: 'image/png'
   };
   const file = $("#product_image")[0].files[0]
-  alert(file.name)
+  //alert(file.name)
   // Upload file and metadata to the object 'images/mountains.jpg'
   const storageRef = ref(storage, 'images/' + file.name);
   const uploadTask = uploadBytesResumable(storageRef, file, metadata);
@@ -120,6 +121,7 @@ async function add_product_info(product_info,downloadURL) {
         image:downloadURL
         });
       console.log("Document written with ID: ", docRef.id);
+      location.reload(true);
     } catch (e) {
       console.error("Error adding document: ", e);
     }
@@ -127,14 +129,14 @@ async function add_product_info(product_info,downloadURL) {
 
 
 $( "#add-product-form" ).on( "submit", function( event ) {
-    alert("Submitted");
+  //  alert("Submitted");
     const product_info = [];
     $("input[type='text']").each(function () {    
         product_info.push($(this).val())
-        alert($(this).val())
+       // alert($(this).val())
     })  
     const product_cat = $(".product_cat").val()
-    alert(product_cat)
+    //alert(product_cat)
     product_info.push(product_cat)
    
     add_product_image(product_info)

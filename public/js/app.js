@@ -27637,22 +27637,23 @@ function _add_customer_info() {
         case 3:
           docRef = _context.sent;
           console.log("Document written with ID: ", docRef.id);
-          _context.next = 10;
+          window.location.href = '/order_confirmed';
+          _context.next = 11;
           break;
-        case 7:
-          _context.prev = 7;
+        case 8:
+          _context.prev = 8;
           _context.t0 = _context["catch"](0);
           console.error("Error adding document: ", _context.t0);
-        case 10:
+        case 11:
         case "end":
           return _context.stop();
       }
-    }, _callee, null, [[0, 7]]);
+    }, _callee, null, [[0, 8]]);
   }));
   return _add_customer_info.apply(this, arguments);
 }
 $("#checkout-form").on("submit", function (event) {
-  alert("Submitted");
+  // alert("Submitted");
   var cust_info = [];
   $("input[type='text']").each(function () {
     cust_info.push($(this).val());
@@ -27667,7 +27668,7 @@ function add_product_image(product_info) {
     contentType: 'image/png'
   };
   var file = $("#product_image")[0].files[0];
-  alert(file.name);
+  //alert(file.name)
   // Upload file and metadata to the object 'images/mountains.jpg'
   var storageRef = (0,firebase_storage__WEBPACK_IMPORTED_MODULE_3__.ref)(storage, 'images/' + file.name);
   var uploadTask = (0,firebase_storage__WEBPACK_IMPORTED_MODULE_3__.uploadBytesResumable)(storageRef, file, metadata);
@@ -27732,29 +27733,31 @@ function _add_product_info() {
         case 3:
           docRef = _context2.sent;
           console.log("Document written with ID: ", docRef.id);
-          _context2.next = 10;
+          location.reload(true);
+          _context2.next = 11;
           break;
-        case 7:
-          _context2.prev = 7;
+        case 8:
+          _context2.prev = 8;
           _context2.t0 = _context2["catch"](0);
           console.error("Error adding document: ", _context2.t0);
-        case 10:
+        case 11:
         case "end":
           return _context2.stop();
       }
-    }, _callee2, null, [[0, 7]]);
+    }, _callee2, null, [[0, 8]]);
   }));
   return _add_product_info.apply(this, arguments);
 }
 $("#add-product-form").on("submit", function (event) {
-  alert("Submitted");
+  //  alert("Submitted");
   var product_info = [];
   $("input[type='text']").each(function () {
     product_info.push($(this).val());
-    alert($(this).val());
+    // alert($(this).val())
   });
+
   var product_cat = $(".product_cat").val();
-  alert(product_cat);
+  //alert(product_cat)
   product_info.push(product_cat);
   add_product_image(product_info);
   event.preventDefault();
