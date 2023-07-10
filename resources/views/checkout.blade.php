@@ -150,21 +150,21 @@
       <div class="row">
         <div class="col-md-6">
           <div class="form_container">
-            <form action="/order_confirmed">
+            <form action="/order_confirmed" id="checkout-form">
               <div>
-                <input type="text" class="form-control" placeholder="Your Name" />
+                <input type="text" class="form-control" placeholder="Your Name" name="your_name" required/>
               </div>
               <div>
-                <input type="text" class="form-control" placeholder="Phone Number" />
+                <input type="text" class="form-control" placeholder="Phone Number" name="phone_no" required/>
               </div>
               <div>
-                <input type="text" class="form-control" placeholder="Flat No and Tower" />
+                <input type="text" class="form-control" placeholder="Flat No and Tower" name="flat_tower_no" required/>
               </div>
               <div>
-                <input type="text" class="form-control" placeholder="Appartment Name" />
+                <input type="text" class="form-control" placeholder="Appartment Name" name="appartment_name" required/>
               </div>
               <div>
-                <input type="text" class="form-control" placeholder="CROSSING REPUBLIK,GHAZIABAD" readonly/>
+                <input type="text" class="form-control" placeholder="CROSSING REPUBLIK,GHAZIABAD" value="CROSSING REPUBLIK,GHAZIABAD" name="locality" readonly/>
               </div>
               {{-- <div>
                 <select class="form-control nice-select wide">
@@ -194,6 +194,7 @@
                 </button>
               </div>
             </form>
+           
           </div>
         </div>
         <div class="col-md-6">
@@ -308,9 +309,11 @@
     </div>
   </footer>
   <!-- footer section -->
-
   <!-- jQery -->
   <script src="js/jquery-3.4.1.min.js"></script>
+  <!-- app js -->
+  <script src="{{ asset('js/app.js') }}"></script>
+  
   <!-- popper js -->
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
   </script>
@@ -326,10 +329,29 @@
   <!-- custom js -->
   <script src="js/custom.js"></script>
   <!-- Google Map -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
-  </script>
+  {{-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+  </script> --}}
   <!-- End Google Map -->
 
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+   /*  import { initializeApp } from 'firebase/app';
+    import { getFirestore, collection, getDocs } from 'firebase/firestore'; */
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+   
+  </script>
+
+  <script>
+ 
+   
+
+  </script>
 </body>
+
+
 
 </html>

@@ -1083,11 +1083,11 @@
           </div>
         </div>
       </div>
-      <div class="btn-box">
+     {{--  <div class="btn-box">
         <a href="">
           View More
         </a>
-      </div>
+      </div> --}}
     </div>
   </section>
 
@@ -1117,9 +1117,9 @@
               are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in
               the middle of text. All
             </p>
-            <a href="">
+          {{--   <a href="">
               Read More
-            </a>
+            </a> --}}
           </div>
         </div>
       </div>

@@ -25,3 +25,6 @@ Route::get('/order_confirmed', function () {
 Route::get('/cart', function () {
     return view('cart');
 });
+Route::get('admin/add_product', function () {
+    return view('admin/add_product');
+});
