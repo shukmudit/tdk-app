@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>The Delight Kingdom | Add Product</title>
+  <title>The Delight Kingdom | List Product</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -207,7 +207,7 @@
               <li class="nav-item">
                 <a href="/admin/list_products" class="nav-link list-product">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>List Product</p>
+                  <p>List Product </p>
                 </a>
               </li>
               
@@ -228,12 +228,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Add Product</h1>
+            <h1>List Product</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="javascript:void(0);">Home</a></li>
-              <li class="breadcrumb-item active">Add Product</li>
+              <li class="breadcrumb-item active">List Product</li>
             </ol>
           </div>
         </div>
@@ -249,50 +249,30 @@
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Add Product</h3>
+                <h3 class="card-title">List Product</h3>
               </div>
-              <!-- /.card-header -->
-              <!-- form start -->
-              <form id="add-product-form">
-                <div class="card-body">
-                  <div class="form-group">
-                    <label for="product_name">Name</label>
-                    <input type="text" class="form-control" id="product_name" placeholder="Enter Product">
-                  </div>
-                  <div class="form-group" data-select2-id="29">
-                    <label>Category</label>
-                    <select class="form-control select2 select2-hidden-accessible product_cat" style="width: 100%;" name="product_cat">
-                      <option selected="selected" value="burger">Burger</option>
-                      <option value="pizza">Pizza</option>
-                      <option value="sandwich">Sandwich</option>
-                      <option value="sides">Sides</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label for="product_desc">Description</label>
-                    <input type="text" class="form-control" id="product_desc" placeholder="Enter Product Description">
-                  </div>
-                  <div class="form-group">
-                    <label for="product_price">Price</label>
-                    <input type="text" class="form-control" id="product_price" placeholder="Enter Product Price">
-                  </div>
-                  <div class="form-group">
-                    <label for="product_image">Image</label>
-                    <div class="input-group">
-                      <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="product_image">
-                        <label class="custom-file-label" for="product_image">Choose file</label>
-                      </div>
+         
+                <!-- /.card-header -->
+                <div class="card-body p-0">
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th style="width: 10px">#</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Category</th>
+                        <th style="width: 40px">Image</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody class="product-listing">
                      
-                    </div>
-                  </div>
+                     
+                    </tbody>
+                  </table>
                 </div>
                 <!-- /.card-body -->
-
-                <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
-              </form>
+              </div>
             </div>
             <!-- /.card -->
 
@@ -330,11 +310,6 @@
 <!-- AdminLTE App -->
 <script src="../dist/js/adminlte.min.js"></script>
 
-<!-- Page specific script -->
-<script>
-$(function () {
-  bsCustomFileInput.init();
-});
-</script>
+
 </body>
 </html>

@@ -27762,6 +27762,59 @@ $("#add-product-form").on("submit", function (event) {
   add_product_image(product_info);
   event.preventDefault();
 });
+function list_products() {
+  return _list_products.apply(this, arguments);
+}
+function _list_products() {
+  _list_products = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4() {
+    var items, i, querySnapshot;
+    return _regeneratorRuntime().wrap(function _callee4$(_context4) {
+      while (1) switch (_context4.prev = _context4.next) {
+        case 0:
+          items = '';
+          i = 1;
+          _context4.next = 4;
+          return (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.getDocs)((0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.collection)(db, "product_table"));
+        case 4:
+          querySnapshot = _context4.sent;
+          querySnapshot.forEach(function (doc) {
+            // console.log(`${doc.id} => ${doc.data()}`);
+            items += '<tr><td>' + i + '</td><td>' + doc.data().name + '</td><td>' + doc.data().price + '</td><td>' + doc.data().category + '</td></td><td><img src="' + doc.data().image + '" height="40px"></td><td><button type="button" class="btn btn-block btn-danger del-btn" id="' + doc.id + '">Delete</button></td></td></tr>';
+            i++;
+          });
+          $('.product-listing').html(items);
+          $(".del-btn").click( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
+            var id;
+            return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+              while (1) switch (_context3.prev = _context3.next) {
+                case 0:
+                  //alert($(this).attr('id'))
+                  id = $(this).attr('id');
+                  if (!confirm("Are you sure you want to delete this?")) {
+                    _context3.next = 5;
+                    break;
+                  }
+                  _context3.next = 4;
+                  return (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.deleteDoc)((0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.doc)(db, "product_table", id));
+                case 4:
+                  location.reload(true);
+                case 5:
+                case "end":
+                  return _context3.stop();
+              }
+            }, _callee3, this);
+          })));
+        case 8:
+        case "end":
+          return _context4.stop();
+      }
+    }, _callee4);
+  }));
+  return _list_products.apply(this, arguments);
+}
+var curr_page = $(location).attr('pathname');
+curr_page = curr_page.split('/');
+if (curr_page[2] == 'list_products') list_products();
 
 /***/ }),
 

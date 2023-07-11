@@ -28,3 +28,6 @@ Route::get('/cart', function () {
 Route::get('admin/add_product', function () {
     return view('admin/add_product');
 });
+Route::get('admin/list_products', function () {
+    return view('admin/list_products');
+});

@@ -1,6 +1,6 @@
 import './bootstrap';
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, getDocs, addDoc } from 'firebase/firestore';
+import { getFirestore, collection, getDocs, addDoc ,doc, deleteDoc } from 'firebase/firestore';
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
 
@@ -142,3 +142,31 @@ $( "#add-product-form" ).on( "submit", function( event ) {
     add_product_image(product_info)
     event.preventDefault();
   } );
+  
+
+  async function list_products(){
+  let items = '';
+  let i = 1;
+  const querySnapshot = await getDocs(collection(db, "product_table"));
+  querySnapshot.forEach((doc) => {
+   // console.log(`${doc.id} => ${doc.data()}`);
+    items +='<tr><td>'+i+'</td><td>'+doc.data().name+'</td><td>'+doc.data().price+'</td><td>'+doc.data().category+'</td></td><td><img src="'+doc.data().image+'" height="40px"></td><td><button type="button" class="btn btn-block btn-danger del-btn" id="'+doc.id+'">Delete</button></td></td></tr>';
+    i++;
+  });
+  $('.product-listing').html(items)
+  $(".del-btn").click( async function () {    
+    //alert($(this).attr('id'))
+    const id = $(this).attr('id')
+    if(confirm("Are you sure you want to delete this?")){
+      await deleteDoc(doc(db, "product_table", id));
+      location.reload(true);
+    }
+  })    
+}
+
+let curr_page = $(location).attr('pathname') 
+curr_page = curr_page.split('/')
+if(curr_page[2] == 'list_products')
+  list_products()
+
+ 
