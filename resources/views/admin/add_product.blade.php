@@ -265,6 +265,7 @@
                       <option selected="selected" value="burger">Burger</option>
                       <option value="pizza">Pizza</option>
                       <option value="sandwich">Sandwich</option>
+                      <option value="pasta">Pasta</option>
                       <option value="sides">Sides</option>
                     </select>
                   </div>
