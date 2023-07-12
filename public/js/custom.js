@@ -9,7 +9,7 @@ getYear();
 
 
 // isotope js
-$(window).on('load', function () {
+/* $(window).on('load', function () {
     $('.filters_menu li').click(function () {
         $('.filters_menu li').removeClass('active');
         $(this).addClass('active');
@@ -27,7 +27,7 @@ $(window).on('load', function () {
             columnWidth: ".all"
         }
     })
-});
+}); */
 
 // nice select
 $(document).ready(function() {

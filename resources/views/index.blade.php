@@ -395,9 +395,9 @@
         <li data-filter=".fries">Fries</li>
       </ul>
 
-      <div class="filters-content">
-        <div class="row grid">
-          <div class="col-sm-6 col-lg-4 all pizza">
+      <div class="menu-listing">
+       {{--  <div class="row grid"> --}}
+         {{--  <div class="col-sm-6 col-lg-4 all pizza">
             <div class="box">
               <div>
                 <div class="img-box">
@@ -472,8 +472,8 @@
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col-sm-6 col-lg-4 all burger">
+          </div> --}}
+          {{-- <div class="col-sm-6 col-lg-4 all burger">
             <div class="box">
               <div>
                 <div class="img-box">
@@ -1080,8 +1080,8 @@
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+          </div> --}}
+       {{--  </div> --}}
       </div>
      {{--  <div class="btn-box">
         <a href="">
@@ -1325,6 +1325,7 @@
 
   <!-- jQery -->
   <script src="{{ asset('js/jquery-3.4.1.min.js')}}"></script>
+  
   <!-- popper js -->
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
   </script>
@@ -1339,6 +1340,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
   <!-- custom js -->
   <script src="{{ asset('js/custom.js')}}"></script>
+  <!-- app js -->
+  <script src="{{ asset('js/app.js') }}"></script>
 
 
 </body>

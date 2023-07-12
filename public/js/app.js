@@ -27815,6 +27815,52 @@ function _list_products() {
 var curr_page = $(location).attr('pathname');
 curr_page = curr_page.split('/');
 if (curr_page[2] == 'list_products') list_products();
+function get_menu_items() {
+  return _get_menu_items.apply(this, arguments);
+}
+function _get_menu_items() {
+  _get_menu_items = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee5() {
+    var items, menu_listing, querySnapshot, $grid;
+    return _regeneratorRuntime().wrap(function _callee5$(_context5) {
+      while (1) switch (_context5.prev = _context5.next) {
+        case 0:
+          items = ' <div class="filters-content "><div class="row grid">';
+          menu_listing = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.query)((0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.collection)(db, "product_table"));
+          _context5.next = 4;
+          return (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.getDocs)(menu_listing);
+        case 4:
+          querySnapshot = _context5.sent;
+          querySnapshot.forEach(function (doc) {
+            // doc.data() is never undefined for query doc snapshots
+            // console.log(doc.id, " => ", doc.data());
+
+            items += '<div class="col-sm-6 col-lg-4 all ' + doc.data().category + '"><div class="box"> <div><div class="img-box"><img src="' + doc.data().image + '" alt="image"></div><div class="detail-box"><h5>' + doc.data().name + '</h5><p>' + doc.data().descp + '</p><div class="options"><h6>Rs.' + doc.data().price + '/-</h6>  <a href="javascript:void(0);" class="cart-btn"><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve"><g><g><path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" /></g></g><g><g><path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48     C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4C457.728,97.71,450.56,86.958,439.296,84.91z" /></g></g><g><g><path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" /></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg></a></div>  </div></div></div></div>';
+          });
+          $('.menu-listing').html(items + '</div></div> ');
+          $('.filters_menu li').click(function () {
+            $('.filters_menu li').removeClass('active');
+            $(this).addClass('active');
+            var data = $(this).attr('data-filter');
+            $grid.isotope({
+              filter: data
+            });
+          });
+          $grid = $(".grid").isotope({
+            itemSelector: ".all",
+            percentPosition: false,
+            masonry: {
+              columnWidth: ".all"
+            }
+          });
+        case 9:
+        case "end":
+          return _context5.stop();
+      }
+    }, _callee5);
+  }));
+  return _get_menu_items.apply(this, arguments);
+}
+get_menu_items();
 
 /***/ }),
 
