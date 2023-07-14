@@ -11,7 +11,7 @@
   <meta name="keywords" content="" />
   <meta name="description" content="" />
   <meta name="author" content="" />
-  <link rel="shortcut icon" href="images/favicon.png" type="">
+  <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="">
 
   <title> The Delight Kingdom | Cart </title>
 
@@ -29,7 +29,8 @@
   <link href="css/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
-
+ <!-- App css -->
+ <link href="css/app.css" rel="stylesheet" />
 </head>
 
 <body class="sub_page">
@@ -393,7 +394,7 @@
       </div>
 
       <div class="btn-box">
-        <a href="/checkout">
+        <a href="/checkout" class="proceed-btn">
           Proceed to Checkout
         </a>
       </div>

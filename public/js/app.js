@@ -27834,7 +27834,7 @@ function _get_menu_items() {
             // doc.data() is never undefined for query doc snapshots
             // console.log(doc.id, " => ", doc.data());
 
-            items += '<div class="col-sm-6 col-lg-4 all ' + doc.data().category + '"><div class="box"> <div><div class="img-box"><img src="' + doc.data().image + '" alt="image"></div><div class="detail-box"><h5>' + doc.data().name + '</h5><p>' + doc.data().descp + '</p><div class="options"><h6>Rs.' + doc.data().price + '/-</h6>  <a href="javascript:void(0);" class="cart-btn"><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve"><g><g><path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" /></g></g><g><g><path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48     C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4C457.728,97.71,450.56,86.958,439.296,84.91z" /></g></g><g><g><path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" /></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg></a></div>  </div></div></div></div>';
+            items += '<div class="col-sm-6 col-lg-4 all ' + doc.data().category + '"><div class="box"> <div><div class="img-box"><img src="' + doc.data().image + '" alt="image"></div><div class="detail-box"><h5>' + doc.data().name + '</h5><p>' + doc.data().descp + '</p><div class="options"><h6>Rs.' + doc.data().price + '/-</h6><a href="javascript:void(0);" class="remove-item" id="minus-' + doc.id + '"><svg width="800px" height="800px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage"><g id="Icon-Set" sketch:type="MSLayerGroup" transform="translate(-516.000000, -1087.000000)" fill="#000000"><path d="M532,1117 C524.268,1117 518,1110.73 518,1103 C518,1095.27 524.268,1089 532,1089 C539.732,1089 546,1095.27 546,1103 C546,1110.73 539.732,1117 532,1117 L532,1117 Z M532,1087 C523.163,1087 516,1094.16 516,1103 C516,1111.84 523.163,1119 532,1119 C540.837,1119 548,1111.84 548,1103 C548,1094.16 540.837,1087 532,1087 L532,1087 Z M538,1102 L526,1102 C525.447,1102 525,1102.45 525,1103 C525,1103.55 525.447,1104 526,1104 L538,1104 C538.553,1104 539,1103.55 539,1103 C539,1102.45 538.553,1102 538,1102 L538,1102 Z" id="minus-circle" sketch:type="MSShapeGroup"></path></g></g></svg></a> <input type="number" value=1 id="qty-' + doc.id + '" style="width: 50px;border-radius: 10px;text-align:center;"/><a href="javascript:void(0);" class="add-item" id="add-' + doc.id + '"><svg width="800px" height="800px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage"><g id="Icon-Set" sketch:type="MSLayerGroup" transform="translate(-464.000000, -1087.000000)" fill="#000000"><path d="M480,1117 C472.268,1117 466,1110.73 466,1103 C466,1095.27 472.268,1089 480,1089 C487.732,1089 494,1095.27 494,1103 C494,1110.73 487.732,1117 480,1117 L480,1117 Z M480,1087 C471.163,1087 464,1094.16 464,1103 C464,1111.84 471.163,1119 480,1119 C488.837,1119 496,1111.84 496,1103 C496,1094.16 488.837,1087 480,1087 L480,1087 Z M486,1102 L481,1102 L481,1097 C481,1096.45 480.553,1096 480,1096 C479.447,1096 479,1096.45 479,1097 L479,1102 L474,1102 C473.447,1102 473,1102.45 473,1103 C473,1103.55 473.447,1104 474,1104 L479,1104 L479,1109 C479,1109.55 479.447,1110 480,1110 C480.553,1110 481,1109.55 481,1109 L481,1104 L486,1104 C486.553,1104 487,1103.55 487,1103 C487,1102.45 486.553,1102 486,1102 L486,1102 Z" id="plus-circle" sketch:type="MSShapeGroup"><path></g></g></svg></a><a href="javascript:void(0);" class="cart-btn" id="' + doc.id + '"><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve"><g><g><path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" /></g></g><g><g><path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48     C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4C457.728,97.71,450.56,86.958,439.296,84.91z" /></g></g><g><g><path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" /></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg></a></div></div></div></div></div>';
           });
           $('.menu-listing').html(items + '</div></div> ');
           $('.filters_menu li').click(function () {
@@ -27852,7 +27852,27 @@ function _get_menu_items() {
               columnWidth: ".all"
             }
           });
-        case 9:
+          $(".cart-btn").click(function () {
+            var item_id = $(this).attr('id');
+            checkCookie(item_id);
+          });
+          $(".remove-item").click(function () {
+            var item_id = $(this).attr('id').split("-")[1];
+            var qty = $("#qty-" + item_id).val();
+            if (qty > 1) {
+              qty--;
+              $("#qty-" + item_id).val(qty);
+            }
+          });
+          $(".add-item").click(function () {
+            var item_id = $(this).attr('id').split("-")[1];
+            var qty = $("#qty-" + item_id).val();
+            if (qty >= 1) {
+              qty++;
+              $("#qty-" + item_id).val(qty);
+            }
+          });
+        case 12:
         case "end":
           return _context5.stop();
       }
@@ -27882,17 +27902,20 @@ function getCookie(cname) {
   return "";
 }
 function checkCookie() {
-  var cart = getCookie("cart_item");
-  if (cart != "") {
-    // item_array.push('2')
-    alert("Cart Has item");
-  } else {
+  var item_id = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+  var cart = getCookie("cart_item").split(',');
+  if (cart != "" && item_id) {
+    cart.push(item_id);
+    setCookie("cart_item", cart, 365);
+  } else if (cart == '' && item_id) {
     var item_array = [];
-    item_array.push('11');
+    item_array.push(item_id);
     setCookie("cart_item", item_array, 365);
+  } else if (cart != '' && !item_id) {
+    $('.proceed-btn').addClass('disable-links');
   }
 }
-if (curr_page[1] == 'cart') checkCookie();
+if (curr_page[1] == 'cart') checkCookie('');
 
 /***/ }),
 
