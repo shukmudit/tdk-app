@@ -154,11 +154,12 @@
         <li class="active" data-filter="*">All</li>
         <li data-filter=".burger">Burger</li>
         <li data-filter=".pizza">Pizza</li>
+        <li data-filter=".sandwich">Sandwich</li>
         <li data-filter=".pasta">Pasta</li>
-        <li data-filter=".fries">Fries</li>
+        <li data-filter=".sides">Sides</li>
       </ul>
-
-      <div class="filters-content">
+      <div class="cart-listing"></div>
+      {{-- <div class="filters-content">
         <div class="row grid">
           <div class="col-sm-6 col-lg-4 all pizza">
             <div class="box">
@@ -386,7 +387,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> --}}
       <div class="heading_container heading_center">
         <h2>
           Total Amount Payable : Rs. 1100/- Only

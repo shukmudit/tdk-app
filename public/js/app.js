@@ -27618,13 +27618,13 @@ function add_customer_info(_x) {
   return _add_customer_info.apply(this, arguments);
 }
 function _add_customer_info() {
-  _add_customer_info = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(cust_info) {
+  _add_customer_info = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(cust_info) {
     var docRef;
-    return _regeneratorRuntime().wrap(function _callee$(_context) {
-      while (1) switch (_context.prev = _context.next) {
+    return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+      while (1) switch (_context2.prev = _context2.next) {
         case 0:
-          _context.prev = 0;
-          _context.next = 3;
+          _context2.prev = 0;
+          _context2.next = 3;
           return (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.addDoc)((0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.collection)(db, "checkout_table"), {
             your_name: cust_info[0],
             phone_no: cust_info[1],
@@ -27635,20 +27635,20 @@ function _add_customer_info() {
             locality: cust_info[4]
           });
         case 3:
-          docRef = _context.sent;
+          docRef = _context2.sent;
           console.log("Document written with ID: ", docRef.id);
           window.location.href = '/order_confirmed';
-          _context.next = 11;
+          _context2.next = 11;
           break;
         case 8:
-          _context.prev = 8;
-          _context.t0 = _context["catch"](0);
-          console.error("Error adding document: ", _context.t0);
+          _context2.prev = 8;
+          _context2.t0 = _context2["catch"](0);
+          console.error("Error adding document: ", _context2.t0);
         case 11:
         case "end":
-          return _context.stop();
+          return _context2.stop();
       }
-    }, _callee, null, [[0, 8]]);
+    }, _callee2, null, [[0, 8]]);
   }));
   return _add_customer_info.apply(this, arguments);
 }
@@ -27715,13 +27715,13 @@ function add_product_info(_x2, _x3) {
   return _add_product_info.apply(this, arguments);
 }
 function _add_product_info() {
-  _add_product_info = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(product_info, downloadURL) {
+  _add_product_info = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3(product_info, downloadURL) {
     var docRef;
-    return _regeneratorRuntime().wrap(function _callee2$(_context2) {
-      while (1) switch (_context2.prev = _context2.next) {
+    return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+      while (1) switch (_context3.prev = _context3.next) {
         case 0:
-          _context2.prev = 0;
-          _context2.next = 3;
+          _context3.prev = 0;
+          _context3.next = 3;
           return (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.addDoc)((0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.collection)(db, "product_table"), {
             name: product_info[0],
             category: product_info[3],
@@ -27731,20 +27731,20 @@ function _add_product_info() {
             image: downloadURL
           });
         case 3:
-          docRef = _context2.sent;
+          docRef = _context3.sent;
           console.log("Document written with ID: ", docRef.id);
           location.reload(true);
-          _context2.next = 11;
+          _context3.next = 11;
           break;
         case 8:
-          _context2.prev = 8;
-          _context2.t0 = _context2["catch"](0);
-          console.error("Error adding document: ", _context2.t0);
+          _context3.prev = 8;
+          _context3.t0 = _context3["catch"](0);
+          console.error("Error adding document: ", _context3.t0);
         case 11:
         case "end":
-          return _context2.stop();
+          return _context3.stop();
       }
-    }, _callee2, null, [[0, 8]]);
+    }, _callee3, null, [[0, 8]]);
   }));
   return _add_product_info.apply(this, arguments);
 }
@@ -27766,49 +27766,49 @@ function list_products() {
   return _list_products.apply(this, arguments);
 }
 function _list_products() {
-  _list_products = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4() {
+  _list_products = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee5() {
     var items, i, querySnapshot;
-    return _regeneratorRuntime().wrap(function _callee4$(_context4) {
-      while (1) switch (_context4.prev = _context4.next) {
+    return _regeneratorRuntime().wrap(function _callee5$(_context5) {
+      while (1) switch (_context5.prev = _context5.next) {
         case 0:
           items = '';
           i = 1;
-          _context4.next = 4;
+          _context5.next = 4;
           return (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.getDocs)((0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.collection)(db, "product_table"));
         case 4:
-          querySnapshot = _context4.sent;
+          querySnapshot = _context5.sent;
           querySnapshot.forEach(function (doc) {
             // console.log(`${doc.id} => ${doc.data()}`);
             items += '<tr><td>' + i + '</td><td>' + doc.data().name + '</td><td>' + doc.data().price + '</td><td>' + doc.data().category + '</td></td><td><img src="' + doc.data().image + '" height="40px"></td><td><button type="button" class="btn btn-block btn-danger del-btn" id="' + doc.id + '">Delete</button></td></td></tr>';
             i++;
           });
           $('.product-listing').html(items);
-          $(".del-btn").click( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
+          $(".del-btn").click( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4() {
             var id;
-            return _regeneratorRuntime().wrap(function _callee3$(_context3) {
-              while (1) switch (_context3.prev = _context3.next) {
+            return _regeneratorRuntime().wrap(function _callee4$(_context4) {
+              while (1) switch (_context4.prev = _context4.next) {
                 case 0:
                   //alert($(this).attr('id'))
                   id = $(this).attr('id');
                   if (!confirm("Are you sure you want to delete this?")) {
-                    _context3.next = 5;
+                    _context4.next = 5;
                     break;
                   }
-                  _context3.next = 4;
+                  _context4.next = 4;
                   return (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.deleteDoc)((0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.doc)(db, "product_table", id));
                 case 4:
                   location.reload(true);
                 case 5:
                 case "end":
-                  return _context3.stop();
+                  return _context4.stop();
               }
-            }, _callee3, this);
+            }, _callee4, this);
           })));
         case 8:
         case "end":
-          return _context4.stop();
+          return _context5.stop();
       }
-    }, _callee4);
+    }, _callee5);
   }));
   return _list_products.apply(this, arguments);
 }
@@ -27819,17 +27819,17 @@ function get_menu_items() {
   return _get_menu_items.apply(this, arguments);
 }
 function _get_menu_items() {
-  _get_menu_items = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee5() {
+  _get_menu_items = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee6() {
     var items, menu_listing, querySnapshot, $grid;
-    return _regeneratorRuntime().wrap(function _callee5$(_context5) {
-      while (1) switch (_context5.prev = _context5.next) {
+    return _regeneratorRuntime().wrap(function _callee6$(_context6) {
+      while (1) switch (_context6.prev = _context6.next) {
         case 0:
           items = ' <div class="filters-content "><div class="row grid">';
           menu_listing = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.query)((0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.collection)(db, "product_table"));
-          _context5.next = 4;
+          _context6.next = 4;
           return (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.getDocs)(menu_listing);
         case 4:
-          querySnapshot = _context5.sent;
+          querySnapshot = _context6.sent;
           querySnapshot.forEach(function (doc) {
             // doc.data() is never undefined for query doc snapshots
             // console.log(doc.id, " => ", doc.data());
@@ -27854,7 +27854,9 @@ function _get_menu_items() {
           });
           $(".cart-btn").click(function () {
             var item_id = $(this).attr('id');
-            checkCookie(item_id);
+            var item_qty = $("#qty-" + item_id).val();
+            var cart_item = item_id + ':' + item_qty;
+            checkCookie(cart_item);
           });
           $(".remove-item").click(function () {
             var item_id = $(this).attr('id').split("-")[1];
@@ -27874,9 +27876,9 @@ function _get_menu_items() {
           });
         case 12:
         case "end":
-          return _context5.stop();
+          return _context6.stop();
       }
-    }, _callee5);
+    }, _callee6);
   }));
   return _get_menu_items.apply(this, arguments);
 }
@@ -27902,16 +27904,71 @@ function getCookie(cname) {
   return "";
 }
 function checkCookie() {
-  var item_id = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+  var cart_item = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
   var cart = getCookie("cart_item").split(',');
-  if (cart != "" && item_id) {
-    cart.push(item_id);
+  if (cart != "" && cart_item) {
+    cart.push(cart_item);
+    alert(cart);
     setCookie("cart_item", cart, 365);
-  } else if (cart == '' && item_id) {
+  } else if (cart == '' && cart_item) {
     var item_array = [];
-    item_array.push(item_id);
+    item_array.push(cart_item);
     setCookie("cart_item", item_array, 365);
-  } else if (cart != '' && !item_id) {
+  } else if (cart != '' && !cart_item) {
+    var items = ' <div class="filters-content "><div class="row grid">';
+    cart.forEach( /*#__PURE__*/function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(item) {
+        var item_id, item_qty, docRef, getRecord, $grid;
+        return _regeneratorRuntime().wrap(function _callee$(_context) {
+          while (1) switch (_context.prev = _context.next) {
+            case 0:
+              item = item.split(':');
+              if (!item[1]) {
+                _context.next = 9;
+                break;
+              }
+              item_id = item[0];
+              item_qty = item[1];
+              docRef = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.doc)(db, "product_table", item_id);
+              _context.next = 7;
+              return (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.getDoc)(docRef);
+            case 7:
+              getRecord = _context.sent;
+              if (getRecord.exists()) {
+                // console.log("Document data:", getRecord.data());
+
+                items += '<div class="col-sm-6 col-lg-4 all ' + getRecord.data().category + '"><div class="box"> <div><div class="img-box"><img src="' + getRecord.data().image + '" alt="image"></div><div class="detail-box"><h5>' + getRecord.data().name + '</h5><p>' + getRecord.data().descp + '</p><div class="options"><h6>Rs.' + getRecord.data().price + '/-</h6><a href="javascript:void(0);" class="remove-item" id="minus-' + item_id + '"><svg width="800px" height="800px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage"><g id="Icon-Set" sketch:type="MSLayerGroup" transform="translate(-516.000000, -1087.000000)" fill="#000000"><path d="M532,1117 C524.268,1117 518,1110.73 518,1103 C518,1095.27 524.268,1089 532,1089 C539.732,1089 546,1095.27 546,1103 C546,1110.73 539.732,1117 532,1117 L532,1117 Z M532,1087 C523.163,1087 516,1094.16 516,1103 C516,1111.84 523.163,1119 532,1119 C540.837,1119 548,1111.84 548,1103 C548,1094.16 540.837,1087 532,1087 L532,1087 Z M538,1102 L526,1102 C525.447,1102 525,1102.45 525,1103 C525,1103.55 525.447,1104 526,1104 L538,1104 C538.553,1104 539,1103.55 539,1103 C539,1102.45 538.553,1102 538,1102 L538,1102 Z" id="minus-circle" sketch:type="MSShapeGroup"></path></g></g></svg></a> <input type="number" value=' + item_qty + ' id="qty-' + item_id + '" style="width: 50px;border-radius: 10px;text-align:center;"/><a href="javascript:void(0);" class="add-item" id="add-' + item_id + '"><svg width="800px" height="800px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage"><g id="Icon-Set" sketch:type="MSLayerGroup" transform="translate(-464.000000, -1087.000000)" fill="#000000"><path d="M480,1117 C472.268,1117 466,1110.73 466,1103 C466,1095.27 472.268,1089 480,1089 C487.732,1089 494,1095.27 494,1103 C494,1110.73 487.732,1117 480,1117 L480,1117 Z M480,1087 C471.163,1087 464,1094.16 464,1103 C464,1111.84 471.163,1119 480,1119 C488.837,1119 496,1111.84 496,1103 C496,1094.16 488.837,1087 480,1087 L480,1087 Z M486,1102 L481,1102 L481,1097 C481,1096.45 480.553,1096 480,1096 C479.447,1096 479,1096.45 479,1097 L479,1102 L474,1102 C473.447,1102 473,1102.45 473,1103 C473,1103.55 473.447,1104 474,1104 L479,1104 L479,1109 C479,1109.55 479.447,1110 480,1110 C480.553,1110 481,1109.55 481,1109 L481,1104 L486,1104 C486.553,1104 487,1103.55 487,1103 C487,1102.45 486.553,1102 486,1102 L486,1102 Z" id="plus-circle" sketch:type="MSShapeGroup"><path></g></g></svg></a><a href="javascript:void(0);" class="user_link remove-btn" id="' + item_id + '"><i class="fa fa-minus" aria-hidden="true"></i></a></div></div></div></div></div>';
+                $('.cart-listing').html(items + '</div></div> ');
+                $('.filters_menu li').click(function () {
+                  $('.filters_menu li').removeClass('active');
+                  $(this).addClass('active');
+                  var data = $(this).attr('data-filter');
+                  $grid.isotope({
+                    filter: data
+                  });
+                });
+                $grid = $(".grid").isotope({
+                  itemSelector: ".all",
+                  percentPosition: false,
+                  masonry: {
+                    columnWidth: ".all"
+                  }
+                });
+              } else {
+                // docSnap.data() will be undefined in this case
+                console.log("No such document!");
+              }
+            case 9:
+            case "end":
+              return _context.stop();
+          }
+        }, _callee);
+      }));
+      return function (_x4) {
+        return _ref.apply(this, arguments);
+      };
+    }());
+  } else {
     $('.proceed-btn').addClass('disable-links');
   }
 }
