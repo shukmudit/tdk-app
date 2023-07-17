@@ -390,8 +390,9 @@
       </div> --}}
       <div class="heading_container heading_center">
         <h2>
-          Total Amount Payable : Rs. 1100/- Only
+          Total : Rs.<label class="total_amt"></label>/-
         </h2>
+       
       </div>
 
       <div class="btn-box">
