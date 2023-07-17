@@ -261,11 +261,12 @@ function checkCookie(cart_item=null) {
   
   if (cart != "" && cart_item) {
       cart.push(cart_item)
-      alert(cart)
+      alert("Items added succesfully !!")
       setCookie("cart_item", cart, 365);
   }else if(cart=='' && cart_item) {
       let item_array = [];
       item_array.push(cart_item)
+      alert("Items added succesfully !!")
       setCookie("cart_item", item_array, 365);
   }else if(cart!='' && !cart_item){
           let items = ' <div class="filters-content "><div class="row grid">';
@@ -305,7 +306,23 @@ function checkCookie(cart_item=null) {
             })
 
             $('.remove-btn').click(function(){
-              alert($(this).attr('id'))
+              var cart_item_id = $(this).attr('id')
+              var i = 0             
+              cart.forEach(item => {
+                if(item){
+                item = item.split(':')
+                if(item[0] == cart_item_id){   
+                  for(let k=i;k<cart.length;k++)
+                    cart[k]=cart[k+1] 
+                    cart.length-- 
+                }
+                i++
+              }
+
+              })
+             
+              setCookie("cart_item", cart, 365);
+              checkCookie('')
             });
 
             $(".total_amt").html(total_amt)
@@ -318,10 +335,14 @@ function checkCookie(cart_item=null) {
         }
 
       });
-
+      
+     
   }else{
-    $('.proceed-btn').addClass('disable-links')
+
+    $('.cart-listing').html('<h2 style="text-align: center;">Cart is Empty</h2>')
+    $('.proceed-btn').attr('style','pointer-events: none;')
   }
+  
 }
 
 if(curr_page[1]=='cart')
