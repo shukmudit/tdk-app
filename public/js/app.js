@@ -27907,7 +27907,16 @@ function checkCookie() {
   var cart_item = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
   var cart = getCookie("cart_item").split(',');
   if (cart != "" && cart_item) {
-    cart.push(cart_item);
+    var flag = 0;
+    var check_item = cart_item.split(':')[0];
+    for (var i = 0; i < cart.length; i++) {
+      var item_exist = cart[i].split(':')[0];
+      if (item_exist == check_item) {
+        cart[i] = cart_item;
+        flag = 1;
+      }
+    }
+    if (!flag) cart.push(cart_item);
     alert("Items added succesfully !!");
     setCookie("cart_item", cart, 365);
   } else if (cart == '' && cart_item) {
@@ -27972,6 +27981,30 @@ function checkCookie() {
                   setCookie("cart_item", cart, 365);
                   checkCookie('');
                 });
+                $(".remove-item").click(function () {
+                  var item_id = $(this).attr('id').split("-")[1];
+                  var qty = $("#qty-" + item_id).val();
+                  if (qty > 1) {
+                    qty--;
+                    $("#qty-" + item_id).val(qty);
+                    for (var _i = 0; _i < cart.length; _i++) {
+                      var item_exist = cart[_i].split(':')[0];
+                      if (item_exist == item_id) {
+                        cart[_i] = item_id + ':' + qty;
+                      }
+                    }
+                    setCookie("cart_item", cart, 365);
+                    checkCookie('');
+                  }
+                });
+                $(".add-item").click(function () {
+                  var item_id = $(this).attr('id').split("-")[1];
+                  var qty = $("#qty-" + item_id).val();
+                  if (qty >= 1) {
+                    qty++;
+                    $("#qty-" + item_id).val(qty);
+                  }
+                });
                 $(".total_amt").html(total_amt);
               } else {
                 // docSnap.data() will be undefined in this case
@@ -27988,6 +28021,7 @@ function checkCookie() {
       };
     }());
   } else {
+    $(".total_amt").html(0);
     $('.cart-listing').html('<h2 style="text-align: center;">Cart is Empty</h2>');
     $('.proceed-btn').attr('style', 'pointer-events: none;');
   }
