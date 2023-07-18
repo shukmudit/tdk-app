@@ -27582,9 +27582,10 @@ function getModularInstance(service) {
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
   \*****************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
+__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 /* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! firebase/app */ "./node_modules/firebase/app/dist/esm/index.esm.js");
@@ -27619,36 +27620,37 @@ function add_customer_info(_x) {
 }
 function _add_customer_info() {
   _add_customer_info = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(cust_info) {
-    var docRef;
+    var checkout_order_id, _docRef;
     return _regeneratorRuntime().wrap(function _callee2$(_context2) {
       while (1) switch (_context2.prev = _context2.next) {
         case 0:
           _context2.prev = 0;
-          _context2.next = 3;
+          checkout_order_id = getCookie('order_id');
+          _context2.next = 4;
           return (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.addDoc)((0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.collection)(db, "checkout_table"), {
             your_name: cust_info[0],
             phone_no: cust_info[1],
             flat_tower_no: cust_info[2],
-            order_id: "tdk123456",
+            order_id: checkout_order_id,
             appartment_name: cust_info[3],
             time: Date(),
             locality: cust_info[4]
           });
-        case 3:
-          docRef = _context2.sent;
-          console.log("Document written with ID: ", docRef.id);
+        case 4:
+          _docRef = _context2.sent;
+          console.log("Document written with ID: ", _docRef.id);
           window.location.href = '/order_confirmed';
-          _context2.next = 11;
+          _context2.next = 12;
           break;
-        case 8:
-          _context2.prev = 8;
+        case 9:
+          _context2.prev = 9;
           _context2.t0 = _context2["catch"](0);
           console.error("Error adding document: ", _context2.t0);
-        case 11:
+        case 12:
         case "end":
           return _context2.stop();
       }
-    }, _callee2, null, [[0, 8]]);
+    }, _callee2, null, [[0, 9]]);
   }));
   return _add_customer_info.apply(this, arguments);
 }
@@ -27716,7 +27718,7 @@ function add_product_info(_x2, _x3) {
 }
 function _add_product_info() {
   _add_product_info = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3(product_info, downloadURL) {
-    var docRef;
+    var _docRef2;
     return _regeneratorRuntime().wrap(function _callee3$(_context3) {
       while (1) switch (_context3.prev = _context3.next) {
         case 0:
@@ -27731,8 +27733,8 @@ function _add_product_info() {
             image: downloadURL
           });
         case 3:
-          docRef = _context3.sent;
-          console.log("Document written with ID: ", docRef.id);
+          _docRef2 = _context3.sent;
+          console.log("Document written with ID: ", _docRef2.id);
           location.reload(true);
           _context3.next = 11;
           break;
@@ -28003,8 +28005,17 @@ function checkCookie() {
                   if (qty >= 1) {
                     qty++;
                     $("#qty-" + item_id).val(qty);
+                    for (var _i2 = 0; _i2 < cart.length; _i2++) {
+                      var item_exist = cart[_i2].split(':')[0];
+                      if (item_exist == item_id) {
+                        cart[_i2] = item_id + ':' + qty;
+                      }
+                    }
+                    setCookie("cart_item", cart, 365);
+                    checkCookie('');
                   }
                 });
+                setCookie('total_amt', total_amt, 365);
                 $(".total_amt").html(total_amt);
               } else {
                 // docSnap.data() will be undefined in this case
@@ -28021,12 +28032,30 @@ function checkCookie() {
       };
     }());
   } else {
+    setCookie('total_amt', 0, 365);
     $(".total_amt").html(0);
     $('.cart-listing').html('<h2 style="text-align: center;">Cart is Empty</h2>');
     $('.proceed-btn').attr('style', 'pointer-events: none;');
   }
 }
 if (curr_page[1] == 'cart') checkCookie('');
+if (curr_page[1] == 'checkout') {
+  var checkout_cart = getCookie('cart_item');
+  var checkout_amt = getCookie('total_amt');
+  try {
+    var docRef = await (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.addDoc)((0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.collection)(db, "order_table"), {
+      cart_items: checkout_cart,
+      total: checkout_amt,
+      time: Date()
+    });
+    setCookie('order_id', docRef.id, 365);
+    //console.log("Document written with ID: ", docRef.id);
+  } catch (e) {
+    console.error("Error adding document: ", e);
+  }
+}
+__webpack_async_result__();
+} catch(e) { __webpack_async_result__(e); } }, 1);
 
 /***/ }),
 
@@ -36772,6 +36801,75 @@ const unwrap = (value) => reverseTransformCache.get(value);
 /******/ 	__webpack_require__.m = __webpack_modules__;
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/async module */
+/******/ 	(() => {
+/******/ 		var webpackQueues = typeof Symbol === "function" ? Symbol("webpack queues") : "__webpack_queues__";
+/******/ 		var webpackExports = typeof Symbol === "function" ? Symbol("webpack exports") : "__webpack_exports__";
+/******/ 		var webpackError = typeof Symbol === "function" ? Symbol("webpack error") : "__webpack_error__";
+/******/ 		var resolveQueue = (queue) => {
+/******/ 			if(queue && queue.d < 1) {
+/******/ 				queue.d = 1;
+/******/ 				queue.forEach((fn) => (fn.r--));
+/******/ 				queue.forEach((fn) => (fn.r-- ? fn.r++ : fn()));
+/******/ 			}
+/******/ 		}
+/******/ 		var wrapDeps = (deps) => (deps.map((dep) => {
+/******/ 			if(dep !== null && typeof dep === "object") {
+/******/ 				if(dep[webpackQueues]) return dep;
+/******/ 				if(dep.then) {
+/******/ 					var queue = [];
+/******/ 					queue.d = 0;
+/******/ 					dep.then((r) => {
+/******/ 						obj[webpackExports] = r;
+/******/ 						resolveQueue(queue);
+/******/ 					}, (e) => {
+/******/ 						obj[webpackError] = e;
+/******/ 						resolveQueue(queue);
+/******/ 					});
+/******/ 					var obj = {};
+/******/ 					obj[webpackQueues] = (fn) => (fn(queue));
+/******/ 					return obj;
+/******/ 				}
+/******/ 			}
+/******/ 			var ret = {};
+/******/ 			ret[webpackQueues] = x => {};
+/******/ 			ret[webpackExports] = dep;
+/******/ 			return ret;
+/******/ 		}));
+/******/ 		__webpack_require__.a = (module, body, hasAwait) => {
+/******/ 			var queue;
+/******/ 			hasAwait && ((queue = []).d = -1);
+/******/ 			var depQueues = new Set();
+/******/ 			var exports = module.exports;
+/******/ 			var currentDeps;
+/******/ 			var outerResolve;
+/******/ 			var reject;
+/******/ 			var promise = new Promise((resolve, rej) => {
+/******/ 				reject = rej;
+/******/ 				outerResolve = resolve;
+/******/ 			});
+/******/ 			promise[webpackExports] = exports;
+/******/ 			promise[webpackQueues] = (fn) => (queue && fn(queue), depQueues.forEach(fn), promise["catch"](x => {}));
+/******/ 			module.exports = promise;
+/******/ 			body((deps) => {
+/******/ 				currentDeps = wrapDeps(deps);
+/******/ 				var fn;
+/******/ 				var getResult = () => (currentDeps.map((d) => {
+/******/ 					if(d[webpackError]) throw d[webpackError];
+/******/ 					return d[webpackExports];
+/******/ 				}))
+/******/ 				var promise = new Promise((resolve) => {
+/******/ 					fn = () => (resolve(getResult));
+/******/ 					fn.r = 0;
+/******/ 					var fnQueue = (q) => (q !== queue && !depQueues.has(q) && (depQueues.add(q), q && !q.d && (fn.r++, q.push(fn))));
+/******/ 					currentDeps.map((dep) => (dep[webpackQueues](fnQueue)));
+/******/ 				});
+/******/ 				return fn.r ? promise : getResult();
+/******/ 			}, (err) => ((err ? reject(promise[webpackError] = err) : outerResolve(exports)), resolveQueue(queue)));
+/******/ 			queue && queue.d < 0 && (queue.d = 0);
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/chunk loaded */
 /******/ 	(() => {
 /******/ 		var deferred = [];

@@ -25,11 +25,12 @@ const firebaseConfig = {
 
   async function add_customer_info(cust_info) {
     try {
+      let checkout_order_id = getCookie('order_id')
       const docRef = await addDoc(collection(db, "checkout_table"), {
         your_name: cust_info[0],
         phone_no: cust_info[1],
         flat_tower_no: cust_info[2],
-        order_id:"tdk123456",
+        order_id:checkout_order_id,
         appartment_name:cust_info[3],
         time: Date(),
         locality:cust_info[4]
@@ -361,9 +362,18 @@ function checkCookie(cart_item=null) {
               if(qty>=1){
                 qty++;
                 $("#qty-"+item_id).val(qty)
+                for (let i = 0; i < cart.length; i++) {
+                  var item_exist = cart[i].split(':')[0]
+                  if(item_exist == item_id){
+                    cart[i] = item_id+':'+qty
+                  }        
+              }
+            
+              setCookie("cart_item", cart, 365);
+              checkCookie('')
               }
             })  
-
+            setCookie('total_amt',total_amt,365)
             $(".total_amt").html(total_amt)
           } else {
             // docSnap.data() will be undefined in this case
@@ -376,7 +386,8 @@ function checkCookie(cart_item=null) {
       });
       
      
-  }else{
+  }else{    
+    setCookie('total_amt',0,365)
     $(".total_amt").html(0)
     $('.cart-listing').html('<h2 style="text-align: center;">Cart is Empty</h2>')
     $('.proceed-btn').attr('style','pointer-events: none;')
@@ -387,3 +398,18 @@ function checkCookie(cart_item=null) {
 if(curr_page[1]=='cart')
 checkCookie('')
 
+if(curr_page[1]=='checkout'){
+  let checkout_cart =  getCookie('cart_item')
+  let checkout_amt = getCookie('total_amt')
+  try {
+    const docRef = await addDoc(collection(db, "order_table"), {
+      cart_items: checkout_cart,
+      total:checkout_amt,
+      time: Date()
+      });
+    setCookie('order_id',docRef.id,365)
+    //console.log("Document written with ID: ", docRef.id);
+  } catch (e) {
+    console.error("Error adding document: ", e);
+  }
+}
