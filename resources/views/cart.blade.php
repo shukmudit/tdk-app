@@ -404,6 +404,11 @@
           Proceed to Checkout
         </a>
       </div>
+      <div class="btn-box">
+        <a href="/#menu" class="home-btn">
+          Add More to Eat
+        </a>
+      </div>
     </div>
   </section>
 
