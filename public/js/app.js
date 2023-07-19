@@ -27820,21 +27820,31 @@ function list_orders() {
 }
 function _list_orders() {
   _list_orders = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee7() {
-    var items, i, querySnapshot;
+    var items, i, first, documentSnapshots, lastVisible, next;
     return _regeneratorRuntime().wrap(function _callee7$(_context7) {
       while (1) switch (_context7.prev = _context7.next) {
         case 0:
           items = '';
-          i = 1;
-          _context7.next = 4;
-          return (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.getDocs)((0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.collection)(db, "checkout_table"));
-        case 4:
-          querySnapshot = _context7.sent;
-          querySnapshot.forEach(function (doc) {
+          i = 1; //  const querySnapshot = await getDocs(query(collection(db, "checkout_table"), orderBy('time','desc')));
+          // Query the first page of docs
+          first = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.query)((0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.collection)(db, "checkout_table"), (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.orderBy)("time", 'desc'), (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.limit)(20));
+          _context7.next = 5;
+          return (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.getDocs)(first);
+        case 5:
+          documentSnapshots = _context7.sent;
+          // Get the last visible document
+          lastVisible = documentSnapshots.docs[documentSnapshots.docs.length - 1];
+          console.log("last", lastVisible);
+
+          // Construct a new query starting at this document,
+          // get the next 10 orders.
+          next = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.query)((0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.collection)(db, "checkout_table"), (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.orderBy)("time", 'desc'), (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.startAfter)(lastVisible), (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.limit)(25)); //console.log(querySnapshot)
+          documentSnapshots.forEach(function (doc) {
             // console.log(`${doc.id} => ${doc.data()}`);
-            items += '<tr><td>' + i + '</td><td>' + doc.data().order_id + '</td><<td>' + doc.data().your_name + '</td><td>' + doc.data().appartment_name + '</td></td><td><button type="button" class="btn btn-block btn-info view-btn" id="' + doc.data().order_id + '-' + doc.id + '">View</button></td></td></tr>';
+            items += '<tr><td>' + i + '</td><td>' + doc.data().order_id + '</td><<td>' + doc.data().your_name + '</td><td>' + doc.data().appartment_name + '</td></td><td>' + doc.data().time + '</td><td><button type="button" class="btn btn-block btn-info view-btn" id="' + doc.data().order_id + '-' + doc.id + '">View</button></td></td></tr>';
             i++;
           });
+
           // console.log(querySnapshot)
           $('.order-listing').html(items);
           $(".view-btn").click( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee6() {
@@ -27852,7 +27862,7 @@ function _list_orders() {
               }
             }, _callee6, this);
           })));
-        case 8:
+        case 12:
         case "end":
           return _context7.stop();
       }
@@ -27980,7 +27990,11 @@ function _get_menu_items() {
             var item_id = $(this).attr('id');
             var item_qty = $("#qty-" + item_id).val();
             var cart_item = item_id + ':' + item_qty;
+            $('.loader').removeClass('display-none');
             checkCookie(cart_item);
+            setTimeout(function () {
+              $('.loader').addClass('display-none');
+            }, 1500);
           });
           $(".remove-item").click(function () {
             var item_id = $(this).attr('id').split("-")[1];
@@ -28041,12 +28055,12 @@ function checkCookie() {
       }
     }
     if (!flag) cart.push(cart_item);
-    alert("Items added succesfully !!");
+    // alert("Items added succesfully !!")
     setCookie("cart_item", cart, 365);
   } else if (cart == '' && cart_item) {
     var item_array = [];
     item_array.push(cart_item);
-    alert("Items added succesfully !!");
+    // alert("Items added succesfully !!")
     setCookie("cart_item", item_array, 365);
   } else if (cart != '' && !cart_item) {
     var items = ' <div class="filters-content "><div class="row grid">';
@@ -28102,8 +28116,12 @@ function checkCookie() {
                       i++;
                     }
                   });
+                  $('.loader').removeClass('display-none');
                   setCookie("cart_item", cart, 365);
                   checkCookie('');
+                  setTimeout(function () {
+                    $('.loader').addClass('display-none');
+                  }, 1500);
                 });
                 $(".remove-item").click(function () {
                   var item_id = $(this).attr('id').split("-")[1];

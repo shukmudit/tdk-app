@@ -34,7 +34,11 @@
 </head>
 
 <body>
-
+  <div class="overlay loader display-none" >
+    <div class="overlay__inner">
+        <div class="overlay__content"><span class="spinner"></span></div>
+    </div>
+</div>
   <div class="hero_area">
     <div class="bg-box">
       <img src="{{ asset('images/hero-bg.jpg') }}" alt="">

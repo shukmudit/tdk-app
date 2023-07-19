@@ -280,6 +280,7 @@
                         <th>Order ID</th>
                         <th>Name</th>
                         <th>Appartment</th>
+                        <th>Time</th>
                         <th>Action</th>
                       </tr>
                     </thead>
@@ -287,6 +288,7 @@
                      
                      
                     </tbody>
+                    
                   </table>
                 </div>
                 <!-- /.card-body -->

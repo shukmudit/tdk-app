@@ -157,7 +157,7 @@
                 <input type="text" class="form-control" placeholder="Your Name" name="your_name" required/>
               </div>
               <div>
-                <input type="text" class="form-control" placeholder="Phone Number" name="phone_no" required/>
+                <input type="text" class="form-control" placeholder="Enter Only 10 Digit Mobile No e.g. 9876543210" name="phone_no"  maxlength="10" required/>
               </div>
               <div>
                 <input type="text" class="form-control" placeholder="Flat No and Tower" name="flat_tower_no" required/>

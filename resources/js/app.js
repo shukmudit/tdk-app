@@ -1,6 +1,6 @@
 import './bootstrap';
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, getDocs, addDoc ,doc, deleteDoc, query, where, getDoc } from 'firebase/firestore';
+import { getFirestore, collection, getDocs, addDoc ,doc, deleteDoc, query, limit, getDoc, orderBy, startAfter } from 'firebase/firestore';
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
 
@@ -173,12 +173,29 @@ if(curr_page[2] == 'list_products')
   async function list_orders(){
     let items = '';
     let i = 1;
-    const querySnapshot = await getDocs(collection(db, "checkout_table"));
-    querySnapshot.forEach((doc) => {
+  //  const querySnapshot = await getDocs(query(collection(db, "checkout_table"), orderBy('time','desc')));
+
+    // Query the first page of docs
+    const first = query(collection(db, "checkout_table"), orderBy("time",'desc'), limit(20));
+    const documentSnapshots = await getDocs(first);
+
+    // Get the last visible document
+    const lastVisible = documentSnapshots.docs[documentSnapshots.docs.length-1];
+    console.log("last", lastVisible);
+
+    // Construct a new query starting at this document,
+    // get the next 10 orders.
+    const next = query(collection(db, "checkout_table"),
+        orderBy("time",'desc'),
+        startAfter(lastVisible),
+        limit(25));
+    //console.log(querySnapshot)
+    documentSnapshots.forEach((doc) => {
      // console.log(`${doc.id} => ${doc.data()}`);
-      items +='<tr><td>'+i+'</td><td>'+doc.data().order_id+'</td><<td>'+doc.data().your_name+'</td><td>'+doc.data().appartment_name+'</td></td><td><button type="button" class="btn btn-block btn-info view-btn" id="'+doc.data().order_id+'-'+doc.id+'">View</button></td></td></tr>';
+      items +='<tr><td>'+i+'</td><td>'+doc.data().order_id+'</td><<td>'+doc.data().your_name+'</td><td>'+doc.data().appartment_name+'</td></td><td>'+doc.data().time+'</td><td><button type="button" class="btn btn-block btn-info view-btn" id="'+doc.data().order_id+'-'+doc.id+'">View</button></td></td></tr>';
       i++;
     });
+   
    // console.log(querySnapshot)
     $('.order-listing').html(items)
     $(".view-btn").click( async function () {    
@@ -279,7 +296,12 @@ async function get_menu_items(){
     var item_id = $(this).attr('id')
     var item_qty = $("#qty-"+item_id).val()
     var cart_item = item_id+':'+item_qty;
+    $('.loader').removeClass('display-none')
+    
     checkCookie(cart_item)
+    setTimeout(() => {
+      $('.loader').addClass('display-none')
+    }, 1500);
   })
 
   $(".remove-item").click(function(){
@@ -344,13 +366,15 @@ function checkCookie(cart_item=null) {
       }
       if(!flag) 
       cart.push(cart_item)
-      alert("Items added succesfully !!")
+     // alert("Items added succesfully !!")
       setCookie("cart_item", cart, 365);
+    
   }else if(cart=='' && cart_item) {
       let item_array = [];
       item_array.push(cart_item)
-      alert("Items added succesfully !!")
+     // alert("Items added succesfully !!")
       setCookie("cart_item", item_array, 365);
+      
   }else if(cart!='' && !cart_item){
           let items = ' <div class="filters-content "><div class="row grid">';
           let total_amt = 0
@@ -403,9 +427,12 @@ function checkCookie(cart_item=null) {
               }
 
               })
-             
+              $('.loader').removeClass('display-none')
               setCookie("cart_item", cart, 365);
               checkCookie('')
+              setTimeout(() => {
+                $('.loader').addClass('display-none')
+              }, 1500);
             });
 
             $(".remove-item").click(function(){
