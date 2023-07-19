@@ -150,7 +150,9 @@
       <div class="row">
         <div class="col-md-6">
           <div class="form_container">
-            <form action="/order_confirmed" id="checkout-form">
+            <form action="{{ route('send_message') }}" id="checkout-form" method="POST">
+              @csrf
+              <input type="hidden" id="cust_total_amt" name="cust_total_amt" />
               <div>
                 <input type="text" class="form-control" placeholder="Your Name" name="your_name" required/>
               </div>

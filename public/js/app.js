@@ -27639,18 +27639,17 @@ function _add_customer_info() {
         case 4:
           _docRef = _context2.sent;
           console.log("Document written with ID: ", _docRef.id);
-          window.location.href = '/order_confirmed';
-          _context2.next = 12;
+          _context2.next = 11;
           break;
-        case 9:
-          _context2.prev = 9;
+        case 8:
+          _context2.prev = 8;
           _context2.t0 = _context2["catch"](0);
           console.error("Error adding document: ", _context2.t0);
-        case 12:
+        case 11:
         case "end":
           return _context2.stop();
       }
-    }, _callee2, null, [[0, 9]]);
+    }, _callee2, null, [[0, 8]]);
   }));
   return _add_customer_info.apply(this, arguments);
 }
@@ -27661,7 +27660,6 @@ $("#checkout-form").on("submit", function (event) {
     cust_info.push($(this).val());
   });
   add_customer_info(cust_info);
-  event.preventDefault();
 });
 function add_product_image(product_info) {
   // Create the file metadata
@@ -28166,6 +28164,7 @@ if (curr_page[1] == 'cart') checkCookie('');
 if (curr_page[1] == 'checkout') {
   var checkout_cart = getCookie('cart_item');
   var checkout_amt = getCookie('total_amt');
+  $("#cust_total_amt").val(checkout_amt);
   try {
     var docRef = await (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.addDoc)((0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.collection)(db, "order_table"), {
       cart_items: checkout_cart,
@@ -28177,6 +28176,12 @@ if (curr_page[1] == 'checkout') {
   } catch (e) {
     console.error("Error adding document: ", e);
   }
+}
+if (curr_page[1] == 'order_confirmed') {
+  var _checkout_cart = getCookie('cart_item');
+  _checkout_cart = _checkout_cart.split(',');
+  while (_checkout_cart.length) _checkout_cart.pop();
+  setCookie('cart_item', _checkout_cart, 365);
 }
 __webpack_async_result__();
 } catch(e) { __webpack_async_result__(e); } }, 1);

@@ -36,7 +36,7 @@ const firebaseConfig = {
         locality:cust_info[4]
       });
       console.log("Document written with ID: ", docRef.id);
-      window.location.href = '/order_confirmed';
+     
     } catch (e) {
       console.error("Error adding document: ", e);
     }
@@ -50,8 +50,7 @@ const firebaseConfig = {
     $("input[type='text']").each(function () {    
        cust_info.push($(this).val())
     })  
-    add_customer_info(cust_info);
-    event.preventDefault();
+    add_customer_info(cust_info);   
   } );
 
 function add_product_image(product_info){
@@ -474,6 +473,7 @@ checkCookie('')
 if(curr_page[1]=='checkout'){
   let checkout_cart =  getCookie('cart_item')
   let checkout_amt = getCookie('total_amt')
+  $("#cust_total_amt").val(checkout_amt)
   try {
     const docRef = await addDoc(collection(db, "order_table"), {
       cart_items: checkout_cart,
@@ -485,4 +485,14 @@ if(curr_page[1]=='checkout'){
   } catch (e) {
     console.error("Error adding document: ", e);
   }
+}
+
+if(curr_page[1]=='order_confirmed'){
+ 
+  let checkout_cart =  getCookie('cart_item')
+  checkout_cart = checkout_cart.split(',')
+  
+  while(checkout_cart.length)
+    checkout_cart.pop()
+  setCookie('cart_item',checkout_cart,365)
 }

@@ -293,7 +293,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
   <!-- custom js -->
   <script src="js/custom.js"></script>
-  
+ <!-- app js -->
+ <script src="{{ asset('js/app.js') }}"></script>  
 
 </body>
 
