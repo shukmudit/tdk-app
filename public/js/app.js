@@ -27817,21 +27817,145 @@ function _list_products() {
 var curr_page = $(location).attr('pathname');
 curr_page = curr_page.split('/');
 if (curr_page[2] == 'list_products') list_products();
+function list_orders() {
+  return _list_orders.apply(this, arguments);
+}
+function _list_orders() {
+  _list_orders = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee7() {
+    var items, i, querySnapshot;
+    return _regeneratorRuntime().wrap(function _callee7$(_context7) {
+      while (1) switch (_context7.prev = _context7.next) {
+        case 0:
+          items = '';
+          i = 1;
+          _context7.next = 4;
+          return (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.getDocs)((0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.collection)(db, "checkout_table"));
+        case 4:
+          querySnapshot = _context7.sent;
+          querySnapshot.forEach(function (doc) {
+            // console.log(`${doc.id} => ${doc.data()}`);
+            items += '<tr><td>' + i + '</td><td>' + doc.data().order_id + '</td><<td>' + doc.data().your_name + '</td><td>' + doc.data().appartment_name + '</td></td><td><button type="button" class="btn btn-block btn-info view-btn" id="' + doc.data().order_id + '-' + doc.id + '">View</button></td></td></tr>';
+            i++;
+          });
+          // console.log(querySnapshot)
+          $('.order-listing').html(items);
+          $(".view-btn").click( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee6() {
+            var id;
+            return _regeneratorRuntime().wrap(function _callee6$(_context6) {
+              while (1) switch (_context6.prev = _context6.next) {
+                case 0:
+                  //alert($(this).attr('id'))
+                  id = $(this).attr('id');
+                  setCookie('view_order_id', id, 365);
+                  location.href = 'view_order';
+                case 3:
+                case "end":
+                  return _context6.stop();
+              }
+            }, _callee6, this);
+          })));
+        case 8:
+        case "end":
+          return _context7.stop();
+      }
+    }, _callee7);
+  }));
+  return _list_orders.apply(this, arguments);
+}
+if (curr_page[2] == 'order_listing') {
+  list_orders();
+}
+if (curr_page[2] == 'view_order') {
+  var view_order_id = getCookie('view_order_id');
+  get_records(view_order_id);
+}
+function get_records(_x4) {
+  return _get_records.apply(this, arguments);
+}
+function _get_records() {
+  _get_records = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee9(view_order_id) {
+    var id, ordered_items, orderdocRef, ordergetRecord, checkoutdocRef, checkoutgetRecord, item_list;
+    return _regeneratorRuntime().wrap(function _callee9$(_context9) {
+      while (1) switch (_context9.prev = _context9.next) {
+        case 0:
+          id = view_order_id.split('-');
+          ordered_items = [];
+          orderdocRef = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.doc)(db, "order_table", id[0]);
+          _context9.next = 5;
+          return (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.getDoc)(orderdocRef);
+        case 5:
+          ordergetRecord = _context9.sent;
+          if (ordergetRecord.exists()) {
+            ordered_items = ordergetRecord.data().cart_items;
+            $(".ordered-time").html(ordergetRecord.data().time);
+            $(".ordered-total").html(ordergetRecord.data().total);
+            $(".ordered-id").html(id[0]);
+          }
+          checkoutdocRef = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.doc)(db, "checkout_table", id[1]);
+          _context9.next = 10;
+          return (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.getDoc)(checkoutdocRef);
+        case 10:
+          checkoutgetRecord = _context9.sent;
+          if (checkoutgetRecord.exists()) {
+            $(".ordered-name").html(checkoutgetRecord.data().your_name);
+            $(".checkout-date").html(checkoutgetRecord.data().time);
+            $(".ordered-locality").html(checkoutgetRecord.data().locality);
+            $(".ordered-appartment").html(checkoutgetRecord.data().appartment_name);
+            $(".ordered-flat").html(checkoutgetRecord.data().flat_tower_no);
+            $(".ordered-phone").html(checkoutgetRecord.data().phone_no);
+          }
+          ordered_items = ordered_items.split(',');
+          item_list = '';
+          ordered_items.forEach( /*#__PURE__*/function () {
+            var _ref4 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee8(item) {
+              var productdocRef, productgetRecord;
+              return _regeneratorRuntime().wrap(function _callee8$(_context8) {
+                while (1) switch (_context8.prev = _context8.next) {
+                  case 0:
+                    item = item.split(':');
+                    productdocRef = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.doc)(db, "product_table", item[0]);
+                    _context8.next = 4;
+                    return (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.getDoc)(productdocRef);
+                  case 4:
+                    productgetRecord = _context8.sent;
+                    if (productgetRecord.exists()) {
+                      item_list += '<li>' + productgetRecord.data().name + ' ' + productgetRecord.data().category + ' x ' + item[1] + '</li>';
+                    }
+                    //  console.log(item_list)
+                    $('.ordered-items').html(item_list);
+                  case 7:
+                  case "end":
+                    return _context8.stop();
+                }
+              }, _callee8);
+            }));
+            return function (_x6) {
+              return _ref4.apply(this, arguments);
+            };
+          }());
+        case 15:
+        case "end":
+          return _context9.stop();
+      }
+    }, _callee9);
+  }));
+  return _get_records.apply(this, arguments);
+}
 function get_menu_items() {
   return _get_menu_items.apply(this, arguments);
 }
 function _get_menu_items() {
-  _get_menu_items = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee6() {
+  _get_menu_items = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee10() {
     var items, menu_listing, querySnapshot, $grid;
-    return _regeneratorRuntime().wrap(function _callee6$(_context6) {
-      while (1) switch (_context6.prev = _context6.next) {
+    return _regeneratorRuntime().wrap(function _callee10$(_context10) {
+      while (1) switch (_context10.prev = _context10.next) {
         case 0:
           items = ' <div class="filters-content "><div class="row grid">';
           menu_listing = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.query)((0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.collection)(db, "product_table"));
-          _context6.next = 4;
+          _context10.next = 4;
           return (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.getDocs)(menu_listing);
         case 4:
-          querySnapshot = _context6.sent;
+          querySnapshot = _context10.sent;
           querySnapshot.forEach(function (doc) {
             // doc.data() is never undefined for query doc snapshots
             // console.log(doc.id, " => ", doc.data());
@@ -27878,9 +28002,9 @@ function _get_menu_items() {
           });
         case 12:
         case "end":
-          return _context6.stop();
+          return _context10.stop();
       }
-    }, _callee6);
+    }, _callee10);
   }));
   return _get_menu_items.apply(this, arguments);
 }
@@ -28027,7 +28151,7 @@ function checkCookie() {
           }
         }, _callee);
       }));
-      return function (_x4) {
+      return function (_x5) {
         return _ref.apply(this, arguments);
       };
     }());

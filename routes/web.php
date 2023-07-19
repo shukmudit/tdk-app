@@ -31,3 +31,9 @@ Route::get('admin/add_product', function () {
 Route::get('admin/list_products', function () {
     return view('admin/list_products');
 });
+Route::get('admin/order_listing', function () {
+    return view('admin/order_listing');
+});
+Route::get('admin/view_order', function () {
+    return view('admin/view_order');
+});

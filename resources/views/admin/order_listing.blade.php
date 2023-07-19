@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>The Delight Kingdom | List Product</title>
+  <title>The Delight Kingdom | Order Listing</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -207,7 +207,7 @@
               <li class="nav-item">
                 <a href="/admin/list_products" class="nav-link list-product">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>List Product </p>
+                  <p>Order List </p>
                 </a>
               </li>
               
@@ -247,12 +247,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>List Product</h1>
+            <h1>Order List</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="javascript:void(0);">Home</a></li>
-              <li class="breadcrumb-item active">List Product</li>
+              <li class="breadcrumb-item active">Order List</li>
             </ol>
           </div>
         </div>
@@ -264,11 +264,11 @@
       <div class="container-fluid">
         <div class="row">
           <!-- left column -->
-          <div class="col-md-6">
+          <div class="col-md-8">
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">List Product</h3>
+                <h3 class="card-title">Orders List</h3>
               </div>
          
                 <!-- /.card-header -->
@@ -277,14 +277,13 @@
                     <thead>
                       <tr>
                         <th style="width: 10px">#</th>
+                        <th>Order ID</th>
                         <th>Name</th>
-                        <th>Price</th>
-                        <th>Category</th>
-                        <th style="width: 40px">Image</th>
+                        <th>Appartment</th>
                         <th>Action</th>
                       </tr>
                     </thead>
-                    <tbody class="product-listing">
+                    <tbody class="order-listing">
                      
                      
                     </tbody>

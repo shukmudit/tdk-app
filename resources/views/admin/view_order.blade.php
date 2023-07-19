@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>The Delight Kingdom | List Product</title>
+  <title>The Delight Kingdom | Order Listing</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -207,7 +207,7 @@
               <li class="nav-item">
                 <a href="/admin/list_products" class="nav-link list-product">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>List Product </p>
+                  <p>View Order </p>
                 </a>
               </li>
               
@@ -247,12 +247,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>List Product</h1>
+            <h1>View Order</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="javascript:void(0);">Home</a></li>
-              <li class="breadcrumb-item active">List Product</li>
+              <li class="breadcrumb-item active">View Order</li>
             </ol>
           </div>
         </div>
@@ -264,27 +264,118 @@
       <div class="container-fluid">
         <div class="row">
           <!-- left column -->
-          <div class="col-md-6">
+          <div class="col-md-8">
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">List Product</h3>
+                <h3 class="card-title">View Order</h3>
+              </div>
+         
+                <!-- /.card-header -->
+                <div class="card-body p-0">
+                  <table class="table table-striped">
+                    <tbody>
+                      <tr>
+                   
+                          <th>Order ID</th>
+                        
+                        <td class="ordered-id">
+
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>Name</th>
+                        <td class="ordered-name">
+
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>Phone</th>
+                        <td class="ordered-phone">
+
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>Flat</th>
+                        <td class="ordered-flat">
+
+                        </td>
+                      </tr>  
+                      <tr>
+                        <th>Appartment</th>
+                        <td class="ordered-appartment">
+
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>Locality</th>
+                        <td class="ordered-locality">
+
+                        </td>
+                      </tr>                     
+                      <tr>
+                        <th>Items</th>
+                        <td >
+                          <ol class="ordered-items">
+
+                          </ol>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>Total</th>
+                        <td class="ordered-total">
+
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>Checkout Date</th>
+                        <td class="checkout-date">
+
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>Order Date</th>
+                        <td class="ordered-time">
+
+                        </td>
+                      </tr>
+                        
+                    </tbody>
+                    
+                  </table>
+                </div>
+                <!-- /.card-body -->
+              </div>
+            </div>
+            <!-- /.card -->
+
+          
+        </div>
+        <!-- /.row -->
+
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-8">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Items Ordered</h3>
               </div>
          
                 <!-- /.card-header -->
                 <div class="card-body p-0">
                   <table class="table table-striped">
                     <thead>
-                      <tr>
-                        <th style="width: 10px">#</th>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Category</th>
-                        <th style="width: 40px">Image</th>
-                        <th>Action</th>
+                      <tr>              
+                        <td >
+                          <ol class="ordered-items">
+
+                          </ol>
+                        </td>
                       </tr>
+                      
                     </thead>
-                    <tbody class="product-listing">
+                    <tbody >
                      
                      
                     </tbody>

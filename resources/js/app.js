@@ -170,6 +170,79 @@ curr_page = curr_page.split('/')
 if(curr_page[2] == 'list_products')
   list_products()
 
+
+  async function list_orders(){
+    let items = '';
+    let i = 1;
+    const querySnapshot = await getDocs(collection(db, "checkout_table"));
+    querySnapshot.forEach((doc) => {
+     // console.log(`${doc.id} => ${doc.data()}`);
+      items +='<tr><td>'+i+'</td><td>'+doc.data().order_id+'</td><<td>'+doc.data().your_name+'</td><td>'+doc.data().appartment_name+'</td></td><td><button type="button" class="btn btn-block btn-info view-btn" id="'+doc.data().order_id+'-'+doc.id+'">View</button></td></td></tr>';
+      i++;
+    });
+   // console.log(querySnapshot)
+    $('.order-listing').html(items)
+    $(".view-btn").click( async function () {    
+      //alert($(this).attr('id'))
+      const id = $(this).attr('id') 
+      setCookie('view_order_id',id,365)  
+      location.href = 'view_order'
+    })    
+  }
+
+if(curr_page[2] == 'order_listing'){
+  list_orders()
+}
+
+if(curr_page[2] == 'view_order'){
+  let view_order_id = getCookie('view_order_id')
+  get_records(view_order_id)  
+}
+async function get_records(view_order_id){
+  let id = view_order_id.split('-')
+  let ordered_items = []
+  const orderdocRef = doc(db, "order_table", id[0])
+  const ordergetRecord = await getDoc(orderdocRef)
+  if (ordergetRecord.exists()) {
+    ordered_items = ordergetRecord.data().cart_items
+    $(".ordered-time").html(ordergetRecord.data().time)
+    $(".ordered-total").html(ordergetRecord.data().total)
+    $(".ordered-id").html(id[0])
+  }
+
+  const checkoutdocRef = doc(db, "checkout_table", id[1])
+  const checkoutgetRecord = await getDoc(checkoutdocRef)
+  if (checkoutgetRecord.exists()) {
+    $(".ordered-name").html(checkoutgetRecord.data().your_name)
+    $(".checkout-date").html(checkoutgetRecord.data().time)
+    $(".ordered-locality").html(checkoutgetRecord.data().locality)
+    $(".ordered-appartment").html(checkoutgetRecord.data().appartment_name)
+    $(".ordered-flat").html(checkoutgetRecord.data().flat_tower_no)
+    $(".ordered-phone").html(checkoutgetRecord.data().phone_no)
+  }
+
+  
+ 
+  ordered_items = ordered_items.split(',')
+
+  let item_list = ''
+  ordered_items.forEach(async (item)=>{
+      item = item.split(':')
+    
+      const productdocRef = doc(db, "product_table", item[0])
+      const productgetRecord = await getDoc(productdocRef)
+      
+      if (productgetRecord.exists()) {        
+       item_list +='<li>'+productgetRecord.data().name+' '+productgetRecord.data().category+' x '+item[1]+'</li>'
+      }
+    //  console.log(item_list)
+      $('.ordered-items').html(item_list)
+  })
+
+  
+  
+}
+
 async function get_menu_items(){
   let items = ' <div class="filters-content "><div class="row grid">';
   const menu_listing = query(collection(db, "product_table"));

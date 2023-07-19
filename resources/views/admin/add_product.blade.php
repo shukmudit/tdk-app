@@ -191,7 +191,7 @@
                with font-awesome or any other icon font library -->
           <li class="nav-item">
             <a href="javascript:void(0);" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="nav-icon fas fa-cubes"></i>
               <p>
                 Products
                 <i class="right fas fa-angle-left"></i>
@@ -210,6 +210,26 @@
                   <p>List Product</p>
                 </a>
               </li>
+              
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a href="javascript:void(0);" class="nav-link">
+              <i class="nav-icon fas fa-cubes"></i>
+              <p>
+                Orders
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/admin/order_listing" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Order Listing</p>
+                </a>
+              </li>
+             
               
             </ul>
           </li>
