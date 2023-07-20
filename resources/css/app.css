@@ -7,13 +7,14 @@ disable-links {
 	position:fixed;
 	width:60px;
 	height:60px;
-	bottom:40px;
+	bottom:180px;
 	right:90px;
 	background-color:#ffbe33;
 	color:#FFF;
 	border-radius:50px;
 	text-align:center;
 	box-shadow: 2px 2px 3px #999;
+    z-index: 2;
 }
 
 .my-float{
@@ -28,7 +29,7 @@ disable-links {
     height: 100%;
     position: fixed;
     background: #222;
-	z-index: 1;
+	z-index: 3;
     opacity: 80%;
 }
 
