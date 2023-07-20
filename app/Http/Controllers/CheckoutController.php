@@ -29,7 +29,7 @@ To Cancel Order Please Send *Cancel* or *Call Us* within 5 minutes.'
         );
         $curl = curl_init();
         curl_setopt_array($curl, array(
-          CURLOPT_URL => "https://api.ultramsg.com/instance54813/messages/chat?token=hp6yx3eyxy1utnl0&to=+917017312962&body=WhatsApp+API+on+UltraMsg.com+works+good&priority=10",
+          CURLOPT_URL => "https://api.ultramsg.com/instance54813/messages/chat?token=hp6yx3eyxy1utnl0&to=+917302536237&body=WhatsApp+API+on+UltraMsg.com+works+good&priority=10",
           CURLOPT_RETURNTRANSFER => true,
           CURLOPT_ENCODING => "",
           CURLOPT_MAXREDIRS => 10,

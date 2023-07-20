@@ -160,10 +160,13 @@
                 <div class="col-md-7 col-lg-6 ">
                   <div class="detail-box">
                     <h1>
-                      All Preparation Done with Rice Bran Oil
+                      Cooked with Rice Bran Oil
                     </h1>
                     <p>
                       Enjoy Food with Every Bite you take.
+                    </p>
+                    <p>
+                      Enjoy the Simplicity of Food.
                     </p>
                     <div class="btn-box">
                       <a href="#menu" class="btn1">
@@ -181,11 +184,13 @@
                 <div class="col-md-7 col-lg-6 ">
                   <div class="detail-box">
                     <h1>
-                      Homemade Bread Loafs Available (Only Pre Order)
+                      Homemade Bread Loafs
                     </h1>
                     <p>
-                     We can customize Bread Loafs accoeding to Customer Needs.
-                     Delivery Done by Next Day.
+                     We can customize Bread Loafs for Customer.
+                    </p>
+                    <p>
+                      Delivery Done by Next Day.
                     </p>
                     <div class="btn-box">
                       <a href="#menu" class="btn1">
@@ -197,16 +202,20 @@
               </div>
             </div>
           </div>
-          {{-- <div class="carousel-item">
+          <div class="carousel-item">
             <div class="container ">
               <div class="row">
                 <div class="col-md-7 col-lg-6 ">
                   <div class="detail-box">
                     <h1>
-                      Fast Food Restaurant
+                      Good Food , 
+                      Good Mood !!
                     </h1>
                     <p>
-                      Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
+                      Never get Full for Good Food.
+                    </p>
+                    <p>
+                      Be Always Hungery !!
                     </p>
                     <div class="btn-box">
                       <a href="#menu" class="btn1">
@@ -217,13 +226,13 @@
                 </div>
               </div>
             </div>
-          </div> --}}
+          </div>
         </div>
         <div class="container">
           <ol class="carousel-indicators">
             <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
             <li data-target="#customCarousel1" data-slide-to="1"></li>
-{{--             <li data-target="#customCarousel1" data-slide-to="2"></li> --}}
+            <li data-target="#customCarousel1" data-slide-to="2"></li>
           </ol>
         </div>
       </div>
