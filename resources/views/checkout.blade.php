@@ -220,7 +220,8 @@
                   Tasty Burger
                 </h5>
                 <p>
-                  Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
+                  A burger is a work of art that satisfies both hunger and soul !!
+                  Burgers are a timeless symbol of comfort and satisfaction.
                 </p>
                
               </div>
