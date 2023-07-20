@@ -160,10 +160,10 @@
                 <div class="col-md-7 col-lg-6 ">
                   <div class="detail-box">
                     <h1>
-                      Fast Food Restaurant
+                      All Preparation Done with Rice Bran Oil
                     </h1>
                     <p>
-                      Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
+                      Enjoy Food with Every Bite you take.
                     </p>
                     <div class="btn-box">
                       <a href="#menu" class="btn1">
@@ -181,10 +181,11 @@
                 <div class="col-md-7 col-lg-6 ">
                   <div class="detail-box">
                     <h1>
-                      Fast Food Restaurant
+                      Homemade Bread Loafs Available (Only Pre Order)
                     </h1>
                     <p>
-                      Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
+                     We can customize Bread Loafs accoeding to Customer Needs.
+                     Delivery Done by Next Day.
                     </p>
                     <div class="btn-box">
                       <a href="#menu" class="btn1">
@@ -196,7 +197,7 @@
               </div>
             </div>
           </div>
-          <div class="carousel-item">
+          {{-- <div class="carousel-item">
             <div class="container ">
               <div class="row">
                 <div class="col-md-7 col-lg-6 ">
@@ -216,13 +217,13 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> --}}
         </div>
         <div class="container">
           <ol class="carousel-indicators">
             <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
             <li data-target="#customCarousel1" data-slide-to="1"></li>
-            <li data-target="#customCarousel1" data-slide-to="2"></li>
+{{--             <li data-target="#customCarousel1" data-slide-to="2"></li> --}}
           </ol>
         </div>
       </div>
@@ -399,6 +400,7 @@
         <li data-filter=".sandwich">Sandwich</li>
         <li data-filter=".pasta">Pasta</li>
         <li data-filter=".sides">Sides</li>
+        <li data-filter=".breads">Breads</li>
       </ul>
 
       <div class="menu-listing">
@@ -1118,10 +1120,7 @@
               </h2>
             </div>
             <p>
-              There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
-              in some form, by injected humour, or randomised words which don't look even slightly believable. If you
-              are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in
-              the middle of text. All
+               
             </p>
           {{--   <a href="">
               Read More
@@ -1250,9 +1249,9 @@
             <a href="" class="footer-logo">
               The Delight Kingdom
             </a>
-            <p>
-              Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with
-            </p>
+           <p>
+              Fulfiling your Daily Craving with Simplicity.Spreading Happiness through Good Food.
+            </p> 
             <div class="footer_social">
               <a href="https://instagram.com/the_delight_kingdom" target="_blank">
                 <i class="fa fa-instagram" aria-hidden="true"></i>

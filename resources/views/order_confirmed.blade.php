@@ -246,7 +246,7 @@
               The Delight Kingdom
             </a>
             <p>
-              Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with
+              Fulfiling your Daily Craving with Simplicity.Spreading Happiness through Good Food.
             </p>
             <div class="footer_social">
               <a href="https://instagram.com/the_delight_kingdom" target="_blank">

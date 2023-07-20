@@ -287,6 +287,7 @@
                       <option value="sandwich">Sandwich</option>
                       <option value="pasta">Pasta</option>
                       <option value="sides">Sides</option>
+                      <option value="breads">Breads</option>
                     </select>
                   </div>
                   <div class="form-group">

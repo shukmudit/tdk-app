@@ -476,6 +476,10 @@ function checkCookie(cart_item=null) {
             $(".total_amt").html(total_amt)
           } else {
             // docSnap.data() will be undefined in this case
+            
+            while(cart.length)
+              cart.pop()
+              setCookie("cart_item", cart, 365);
             console.log("No such document!");
           }
 
