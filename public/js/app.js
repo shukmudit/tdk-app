@@ -27898,7 +27898,7 @@ if (curr_page[2] == 'order_listing') {
   }(Audio.prototype.play);
 
   // Try automatically playing our audio via script. This would normally trigger and error.
-  document.getElementById('MyAudioElement').play();
+
   setInterval( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
     var snapshot, recent_orders;
     return _regeneratorRuntime().wrap(function _callee$(_context) {
@@ -27909,13 +27909,16 @@ if (curr_page[2] == 'order_listing') {
         case 2:
           snapshot = _context.sent;
           recent_orders = snapshot.data().count;
+          console.log(last_orders + '----' + recent_orders);
           if (last_orders < recent_orders) {
             $('#play_audio').click();
+            document.getElementById('MyAudioElement').play();
             last_orders = recent_orders;
+            console.log(last_orders + '----' + recent_orders);
             list_orders();
           }
           // console.log('count: ', snapshot.data().count);
-        case 5:
+        case 6:
         case "end":
           return _context.stop();
       }

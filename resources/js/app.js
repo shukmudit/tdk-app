@@ -207,6 +207,9 @@ if(curr_page[2] == 'list_products')
       setCookie('view_order_id',id,365)  
       location.href = 'view_order'
     })    
+
+
+    
   }
 
 if(curr_page[2] == 'order_listing'){
@@ -231,13 +234,17 @@ Audio.prototype.play = (function(play) {
   })(Audio.prototype.play);
   
   // Try automatically playing our audio via script. This would normally trigger and error.
-  document.getElementById('MyAudioElement').play()  
+ 
   setInterval(async() => {
     const snapshot = await getCountFromServer(collection(db, "checkout_table"));
     let recent_orders = snapshot.data().count
+    console.log(last_orders+'----'+recent_orders)
     if(last_orders<recent_orders){
       $('#play_audio').click()
+      document.getElementById('MyAudioElement').play()  
       last_orders = recent_orders
+      console.log(last_orders+'----'+recent_orders)
+      
       list_orders()
     }
    // console.log('count: ', snapshot.data().count);
