@@ -27619,14 +27619,14 @@ function add_customer_info(_x) {
   return _add_customer_info.apply(this, arguments);
 }
 function _add_customer_info() {
-  _add_customer_info = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(cust_info) {
+  _add_customer_info = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3(cust_info) {
     var checkout_order_id, _docRef;
-    return _regeneratorRuntime().wrap(function _callee2$(_context2) {
-      while (1) switch (_context2.prev = _context2.next) {
+    return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+      while (1) switch (_context3.prev = _context3.next) {
         case 0:
-          _context2.prev = 0;
+          _context3.prev = 0;
           checkout_order_id = getCookie('order_id');
-          _context2.next = 4;
+          _context3.next = 4;
           return (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.addDoc)((0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.collection)(db, "checkout_table"), {
             your_name: cust_info[0],
             phone_no: cust_info[1],
@@ -27637,19 +27637,19 @@ function _add_customer_info() {
             locality: cust_info[4]
           });
         case 4:
-          _docRef = _context2.sent;
+          _docRef = _context3.sent;
           console.log("Document written with ID: ", _docRef.id);
-          _context2.next = 11;
+          _context3.next = 11;
           break;
         case 8:
-          _context2.prev = 8;
-          _context2.t0 = _context2["catch"](0);
-          console.error("Error adding document: ", _context2.t0);
+          _context3.prev = 8;
+          _context3.t0 = _context3["catch"](0);
+          console.error("Error adding document: ", _context3.t0);
         case 11:
         case "end":
-          return _context2.stop();
+          return _context3.stop();
       }
-    }, _callee2, null, [[0, 8]]);
+    }, _callee3, null, [[0, 8]]);
   }));
   return _add_customer_info.apply(this, arguments);
 }
@@ -27715,13 +27715,13 @@ function add_product_info(_x2, _x3) {
   return _add_product_info.apply(this, arguments);
 }
 function _add_product_info() {
-  _add_product_info = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3(product_info, downloadURL) {
+  _add_product_info = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4(product_info, downloadURL) {
     var _docRef2;
-    return _regeneratorRuntime().wrap(function _callee3$(_context3) {
-      while (1) switch (_context3.prev = _context3.next) {
+    return _regeneratorRuntime().wrap(function _callee4$(_context4) {
+      while (1) switch (_context4.prev = _context4.next) {
         case 0:
-          _context3.prev = 0;
-          _context3.next = 3;
+          _context4.prev = 0;
+          _context4.next = 3;
           return (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.addDoc)((0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.collection)(db, "product_table"), {
             name: product_info[0],
             category: product_info[3],
@@ -27731,20 +27731,20 @@ function _add_product_info() {
             image: downloadURL
           });
         case 3:
-          _docRef2 = _context3.sent;
+          _docRef2 = _context4.sent;
           console.log("Document written with ID: ", _docRef2.id);
           location.reload(true);
-          _context3.next = 11;
+          _context4.next = 11;
           break;
         case 8:
-          _context3.prev = 8;
-          _context3.t0 = _context3["catch"](0);
-          console.error("Error adding document: ", _context3.t0);
+          _context4.prev = 8;
+          _context4.t0 = _context4["catch"](0);
+          console.error("Error adding document: ", _context4.t0);
         case 11:
         case "end":
-          return _context3.stop();
+          return _context4.stop();
       }
-    }, _callee3, null, [[0, 8]]);
+    }, _callee4, null, [[0, 8]]);
   }));
   return _add_product_info.apply(this, arguments);
 }
@@ -27766,49 +27766,49 @@ function list_products() {
   return _list_products.apply(this, arguments);
 }
 function _list_products() {
-  _list_products = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee5() {
+  _list_products = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee6() {
     var items, i, querySnapshot;
-    return _regeneratorRuntime().wrap(function _callee5$(_context5) {
-      while (1) switch (_context5.prev = _context5.next) {
+    return _regeneratorRuntime().wrap(function _callee6$(_context6) {
+      while (1) switch (_context6.prev = _context6.next) {
         case 0:
           items = '';
           i = 1;
-          _context5.next = 4;
+          _context6.next = 4;
           return (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.getDocs)((0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.collection)(db, "product_table"));
         case 4:
-          querySnapshot = _context5.sent;
+          querySnapshot = _context6.sent;
           querySnapshot.forEach(function (doc) {
             // console.log(`${doc.id} => ${doc.data()}`);
             items += '<tr><td>' + i + '</td><td>' + doc.data().name + '</td><td>' + doc.data().price + '</td><td>' + doc.data().category + '</td></td><td><img src="' + doc.data().image + '" height="40px"></td><td><button type="button" class="btn btn-block btn-danger del-btn" id="' + doc.id + '">Delete</button></td></td></tr>';
             i++;
           });
           $('.product-listing').html(items);
-          $(".del-btn").click( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4() {
+          $(".del-btn").click( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee5() {
             var id;
-            return _regeneratorRuntime().wrap(function _callee4$(_context4) {
-              while (1) switch (_context4.prev = _context4.next) {
+            return _regeneratorRuntime().wrap(function _callee5$(_context5) {
+              while (1) switch (_context5.prev = _context5.next) {
                 case 0:
                   //alert($(this).attr('id'))
                   id = $(this).attr('id');
                   if (!confirm("Are you sure you want to delete this?")) {
-                    _context4.next = 5;
+                    _context5.next = 5;
                     break;
                   }
-                  _context4.next = 4;
+                  _context5.next = 4;
                   return (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.deleteDoc)((0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.doc)(db, "product_table", id));
                 case 4:
                   location.reload(true);
                 case 5:
                 case "end":
-                  return _context4.stop();
+                  return _context5.stop();
               }
-            }, _callee4, this);
+            }, _callee5, this);
           })));
         case 8:
         case "end":
-          return _context5.stop();
+          return _context6.stop();
       }
-    }, _callee5);
+    }, _callee6);
   }));
   return _list_products.apply(this, arguments);
 }
@@ -27819,23 +27819,21 @@ function list_orders() {
   return _list_orders.apply(this, arguments);
 }
 function _list_orders() {
-  _list_orders = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee7() {
-    var items, i, first, documentSnapshots, lastVisible, next;
-    return _regeneratorRuntime().wrap(function _callee7$(_context7) {
-      while (1) switch (_context7.prev = _context7.next) {
+  _list_orders = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee8() {
+    var items, i, first, documentSnapshots, lastVisible, next, snapshot, no_of_orders;
+    return _regeneratorRuntime().wrap(function _callee8$(_context8) {
+      while (1) switch (_context8.prev = _context8.next) {
         case 0:
           items = '';
           i = 1; //  const querySnapshot = await getDocs(query(collection(db, "checkout_table"), orderBy('time','desc')));
           // Query the first page of docs
           first = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.query)((0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.collection)(db, "checkout_table"), (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.orderBy)("time", 'asc'), (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.limit)(25));
-          _context7.next = 5;
+          _context8.next = 5;
           return (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.getDocs)(first);
         case 5:
-          documentSnapshots = _context7.sent;
+          documentSnapshots = _context8.sent;
           // Get the last visible document
-          lastVisible = documentSnapshots.docs[documentSnapshots.docs.length - 1];
-          console.log("last", lastVisible);
-
+          lastVisible = documentSnapshots.docs[documentSnapshots.docs.length - 1]; //console.log("last", lastVisible);
           // Construct a new query starting at this document,
           // get the next 10 orders.
           next = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.query)((0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.collection)(db, "checkout_table"), (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.orderBy)("time", 'asc'), (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.startAfter)(lastVisible), (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.limit)(25)); //console.log(querySnapshot)
@@ -27844,13 +27842,18 @@ function _list_orders() {
             items += '<tr><td>' + i + '</td><td>' + doc.data().order_id + '</td><<td>' + doc.data().your_name + '</td><td>' + doc.data().appartment_name + '</td></td><td>' + doc.data().time + '</td><td><button type="button" class="btn btn-block btn-info view-btn" id="' + doc.data().order_id + '-' + doc.id + '">View</button></td></td></tr>';
             i++;
           });
-
+          _context8.next = 11;
+          return (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.getCountFromServer)((0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.collection)(db, "checkout_table"));
+        case 11:
+          snapshot = _context8.sent;
+          no_of_orders = snapshot.data().count;
+          setCookie('orders_count', no_of_orders, 365);
           // console.log(querySnapshot)
           $('.order-listing').html(items);
-          $(".view-btn").click( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee6() {
+          $(".view-btn").click( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee7() {
             var id;
-            return _regeneratorRuntime().wrap(function _callee6$(_context6) {
-              while (1) switch (_context6.prev = _context6.next) {
+            return _regeneratorRuntime().wrap(function _callee7$(_context7) {
+              while (1) switch (_context7.prev = _context7.next) {
                 case 0:
                   //alert($(this).attr('id'))
                   id = $(this).attr('id');
@@ -27858,20 +27861,66 @@ function _list_orders() {
                   location.href = 'view_order';
                 case 3:
                 case "end":
-                  return _context6.stop();
+                  return _context7.stop();
               }
-            }, _callee6, this);
+            }, _callee7, this);
           })));
-        case 12:
+        case 16:
         case "end":
-          return _context7.stop();
+          return _context8.stop();
       }
-    }, _callee7);
+    }, _callee8);
   }));
   return _list_orders.apply(this, arguments);
 }
 if (curr_page[2] == 'order_listing') {
   list_orders();
+  var last_orders = getCookie('orders_count');
+  // JavaScript
+  // Wrap the native DOM audio element play function and handle any autoplay errors
+  Audio.prototype.play = function (play) {
+    return function () {
+      var _this = this;
+      var audio = this,
+        args = arguments,
+        promise = play.apply(audio, args);
+      if (promise !== undefined) {
+        promise["catch"](function (_) {
+          // Autoplay was prevented. This is optional, but add a button to start playing.
+          var el = document.getElementById("play_audio");
+          el.addEventListener("click", function () {
+            play.apply(audio, args);
+          });
+          _this.parentNode.insertBefore(el, _this.nextSibling);
+        });
+      }
+    };
+  }(Audio.prototype.play);
+
+  // Try automatically playing our audio via script. This would normally trigger and error.
+  document.getElementById('MyAudioElement').play();
+  setInterval( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+    var snapshot, recent_orders;
+    return _regeneratorRuntime().wrap(function _callee$(_context) {
+      while (1) switch (_context.prev = _context.next) {
+        case 0:
+          _context.next = 2;
+          return (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.getCountFromServer)((0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.collection)(db, "checkout_table"));
+        case 2:
+          snapshot = _context.sent;
+          recent_orders = snapshot.data().count;
+          if (last_orders < recent_orders) {
+            $('#play_audio').click();
+            last_orders = recent_orders;
+            list_orders();
+          }
+          // console.log('count: ', snapshot.data().count);
+        case 5:
+        case "end":
+          return _context.stop();
+      }
+    }, _callee);
+  })), 2000);
 }
 if (curr_page[2] == 'view_order') {
   var view_order_id = getCookie('view_order_id');
@@ -27881,18 +27930,18 @@ function get_records(_x4) {
   return _get_records.apply(this, arguments);
 }
 function _get_records() {
-  _get_records = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee9(view_order_id) {
+  _get_records = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee10(view_order_id) {
     var id, ordered_items, orderdocRef, ordergetRecord, checkoutdocRef, checkoutgetRecord, item_list;
-    return _regeneratorRuntime().wrap(function _callee9$(_context9) {
-      while (1) switch (_context9.prev = _context9.next) {
+    return _regeneratorRuntime().wrap(function _callee10$(_context10) {
+      while (1) switch (_context10.prev = _context10.next) {
         case 0:
           id = view_order_id.split('-');
           ordered_items = [];
           orderdocRef = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.doc)(db, "order_table", id[0]);
-          _context9.next = 5;
+          _context10.next = 5;
           return (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.getDoc)(orderdocRef);
         case 5:
-          ordergetRecord = _context9.sent;
+          ordergetRecord = _context10.sent;
           if (ordergetRecord.exists()) {
             ordered_items = ordergetRecord.data().cart_items;
             $(".ordered-time").html(ordergetRecord.data().time);
@@ -27900,10 +27949,10 @@ function _get_records() {
             $(".ordered-id").html(id[0]);
           }
           checkoutdocRef = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.doc)(db, "checkout_table", id[1]);
-          _context9.next = 10;
+          _context10.next = 10;
           return (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.getDoc)(checkoutdocRef);
         case 10:
-          checkoutgetRecord = _context9.sent;
+          checkoutgetRecord = _context10.sent;
           if (checkoutgetRecord.exists()) {
             $(".ordered-name").html(checkoutgetRecord.data().your_name);
             $(".checkout-date").html(checkoutgetRecord.data().time);
@@ -27915,17 +27964,17 @@ function _get_records() {
           ordered_items = ordered_items.split(',');
           item_list = '';
           ordered_items.forEach( /*#__PURE__*/function () {
-            var _ref4 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee8(item) {
+            var _ref5 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee9(item) {
               var productdocRef, productgetRecord;
-              return _regeneratorRuntime().wrap(function _callee8$(_context8) {
-                while (1) switch (_context8.prev = _context8.next) {
+              return _regeneratorRuntime().wrap(function _callee9$(_context9) {
+                while (1) switch (_context9.prev = _context9.next) {
                   case 0:
                     item = item.split(':');
                     productdocRef = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.doc)(db, "product_table", item[0]);
-                    _context8.next = 4;
+                    _context9.next = 4;
                     return (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.getDoc)(productdocRef);
                   case 4:
-                    productgetRecord = _context8.sent;
+                    productgetRecord = _context9.sent;
                     if (productgetRecord.exists()) {
                       item_list += '<li>' + productgetRecord.data().name + ' ' + productgetRecord.data().category + ' x ' + item[1] + '</li>';
                     }
@@ -27933,19 +27982,19 @@ function _get_records() {
                     $('.ordered-items').html(item_list);
                   case 7:
                   case "end":
-                    return _context8.stop();
+                    return _context9.stop();
                 }
-              }, _callee8);
+              }, _callee9);
             }));
             return function (_x6) {
-              return _ref4.apply(this, arguments);
+              return _ref5.apply(this, arguments);
             };
           }());
         case 15:
         case "end":
-          return _context9.stop();
+          return _context10.stop();
       }
-    }, _callee9);
+    }, _callee10);
   }));
   return _get_records.apply(this, arguments);
 }
@@ -27953,17 +28002,17 @@ function get_menu_items() {
   return _get_menu_items.apply(this, arguments);
 }
 function _get_menu_items() {
-  _get_menu_items = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee10() {
+  _get_menu_items = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee11() {
     var items, menu_listing, querySnapshot, $grid;
-    return _regeneratorRuntime().wrap(function _callee10$(_context10) {
-      while (1) switch (_context10.prev = _context10.next) {
+    return _regeneratorRuntime().wrap(function _callee11$(_context11) {
+      while (1) switch (_context11.prev = _context11.next) {
         case 0:
           items = ' <div class="filters-content "><div class="row grid">';
           menu_listing = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.query)((0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.collection)(db, "product_table"));
-          _context10.next = 4;
+          _context11.next = 4;
           return (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.getDocs)(menu_listing);
         case 4:
-          querySnapshot = _context10.sent;
+          querySnapshot = _context11.sent;
           querySnapshot.forEach(function (doc) {
             // doc.data() is never undefined for query doc snapshots
             // console.log(doc.id, " => ", doc.data());
@@ -28014,9 +28063,9 @@ function _get_menu_items() {
           });
         case 12:
         case "end":
-          return _context10.stop();
+          return _context11.stop();
       }
-    }, _callee10);
+    }, _callee11);
   }));
   return _get_menu_items.apply(this, arguments);
 }
@@ -28066,23 +28115,23 @@ function checkCookie() {
     var items = ' <div class="filters-content "><div class="row grid">';
     var total_amt = 0;
     cart.forEach( /*#__PURE__*/function () {
-      var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(item) {
+      var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(item) {
         var item_id, item_qty, docRef, getRecord, $grid;
-        return _regeneratorRuntime().wrap(function _callee$(_context) {
-          while (1) switch (_context.prev = _context.next) {
+        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+          while (1) switch (_context2.prev = _context2.next) {
             case 0:
               item = item.split(':');
               if (!item[1]) {
-                _context.next = 9;
+                _context2.next = 9;
                 break;
               }
               item_id = item[0];
               item_qty = item[1];
               docRef = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.doc)(db, "product_table", item_id);
-              _context.next = 7;
+              _context2.next = 7;
               return (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.getDoc)(docRef);
             case 7:
-              getRecord = _context.sent;
+              getRecord = _context2.sent;
               if (getRecord.exists()) {
                 // console.log("Document data:", getRecord.data());
                 total_amt += item_qty * getRecord.data().price;
@@ -28166,12 +28215,12 @@ function checkCookie() {
               }
             case 9:
             case "end":
-              return _context.stop();
+              return _context2.stop();
           }
-        }, _callee);
+        }, _callee2);
       }));
       return function (_x5) {
-        return _ref.apply(this, arguments);
+        return _ref2.apply(this, arguments);
       };
     }());
   } else {

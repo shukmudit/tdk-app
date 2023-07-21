@@ -310,7 +310,13 @@
     </div>
     <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
   </footer>
-
+ <!-- HTML -->
+<audio id="MyAudioElement" autoplay>
+  <source src="{{ asset('light-hearted-message-tone.ogg') }}" type="audio/ogg">
+  <source src="{{ asset('light-hearted-message-tone.mp3') }}" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+<button id="play_audio">Play</button>
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
@@ -329,6 +335,7 @@
 <script src="../plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 <!-- AdminLTE App -->
 <script src="../dist/js/adminlte.min.js"></script>
+
 
 
 </body>

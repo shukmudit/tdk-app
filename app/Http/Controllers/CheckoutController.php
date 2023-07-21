@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-  
+use Illuminate\Support\Facades\Http;
 class CheckoutController extends Controller
 {
 
@@ -44,11 +44,12 @@ To Cancel Order Please Send *Cancel* or *Call Us* within 5 minutes.'
           ),
         ));
         
-        $response = curl_exec($curl);
+        $response = Http::post('https://api.ultramsg.com/instance54813/messages/chat', $params);
+       /*  $response = curl_exec($curl);
 
-        $err = curl_error($curl);
+        $err = curl_error($curl); */
        //dd($response.'   '.$err);
-        curl_close($curl);
+      //  curl_close($curl);
    return redirect('order_confirmed');
 }
 

@@ -1,6 +1,6 @@
 import './bootstrap';
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, getDocs, addDoc ,doc, deleteDoc, query, limit, getDoc, orderBy, startAfter } from 'firebase/firestore';
+import { getFirestore, collection, getDocs, addDoc ,doc, deleteDoc, query, limit, getDoc, orderBy, startAfter, getCountFromServer } from 'firebase/firestore';
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
 
@@ -181,7 +181,7 @@ if(curr_page[2] == 'list_products')
 
     // Get the last visible document
     const lastVisible = documentSnapshots.docs[documentSnapshots.docs.length-1];
-    console.log("last", lastVisible);
+    //console.log("last", lastVisible);
 
     // Construct a new query starting at this document,
     // get the next 10 orders.
@@ -196,6 +196,9 @@ if(curr_page[2] == 'list_products')
       i++;
     });
    
+    const snapshot = await getCountFromServer(collection(db, "checkout_table"));
+    let no_of_orders = snapshot.data().count
+    setCookie('orders_count',no_of_orders,365)
    // console.log(querySnapshot)
     $('.order-listing').html(items)
     $(".view-btn").click( async function () {    
@@ -208,6 +211,37 @@ if(curr_page[2] == 'list_products')
 
 if(curr_page[2] == 'order_listing'){
   list_orders()
+  let last_orders = getCookie('orders_count') 
+    // JavaScript
+// Wrap the native DOM audio element play function and handle any autoplay errors
+Audio.prototype.play = (function(play) {
+  return function () {
+    var audio = this,
+        args = arguments,
+        promise = play.apply(audio, args);
+    if (promise !== undefined) {
+      promise.catch(_ => {
+        // Autoplay was prevented. This is optional, but add a button to start playing.
+        var el = document.getElementById("play_audio");
+        el.addEventListener("click", function(){play.apply(audio, args);});
+        this.parentNode.insertBefore(el, this.nextSibling)
+      });
+    }
+  };
+  })(Audio.prototype.play);
+  
+  // Try automatically playing our audio via script. This would normally trigger and error.
+  document.getElementById('MyAudioElement').play()  
+  setInterval(async() => {
+    const snapshot = await getCountFromServer(collection(db, "checkout_table"));
+    let recent_orders = snapshot.data().count
+    if(last_orders<recent_orders){
+      $('#play_audio').click()
+      last_orders = recent_orders
+      list_orders()
+    }
+   // console.log('count: ', snapshot.data().count);
+  }, 2000);
 }
 
 if(curr_page[2] == 'view_order'){
