@@ -1208,8 +1208,7 @@
   <section class="client_section layout_padding-bottom">
     <div class="container" id="review">
       
-      <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
-      <div class="elfsight-app-edf0c31d-66fc-4546-8a3f-d9bfc309a483"></div>
+      <script src="https://widget.trustmary.com/QV7F-_koW"></script>
 
     
     </div>

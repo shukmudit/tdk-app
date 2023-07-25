@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CheckoutController;
+use Illuminate\Support\Facades\URL;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,3 +40,5 @@ Route::get('admin/order_listing', function () {
 Route::get('admin/view_order', function () {
     return view('admin/view_order');
 });
+
+//URL::forceScheme();
