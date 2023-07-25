@@ -176,7 +176,7 @@ if(curr_page[2] == 'list_products')
   //  const querySnapshot = await getDocs(query(collection(db, "checkout_table"), orderBy('time','desc')));
 
     // Query the first page of docs
-    const first = query(collection(db, "checkout_table"), orderBy("time",'asc'), limit(25));
+    const first = query(collection(db, "checkout_table"), orderBy("time",'desc'), limit(25));
     const documentSnapshots = await getDocs(first);
 
     // Get the last visible document
@@ -186,7 +186,7 @@ if(curr_page[2] == 'list_products')
     // Construct a new query starting at this document,
     // get the next 10 orders.
     const next = query(collection(db, "checkout_table"),
-        orderBy("time",'asc'),
+        orderBy("time",'desc'),
         startAfter(lastVisible),
         limit(25));
     //console.log(querySnapshot)

@@ -27827,7 +27827,7 @@ function _list_orders() {
           items = '';
           i = 1; //  const querySnapshot = await getDocs(query(collection(db, "checkout_table"), orderBy('time','desc')));
           // Query the first page of docs
-          first = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.query)((0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.collection)(db, "checkout_table"), (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.orderBy)("time", 'asc'), (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.limit)(25));
+          first = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.query)((0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.collection)(db, "checkout_table"), (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.orderBy)("time", 'desc'), (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.limit)(25));
           _context8.next = 5;
           return (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.getDocs)(first);
         case 5:
@@ -27836,7 +27836,7 @@ function _list_orders() {
           lastVisible = documentSnapshots.docs[documentSnapshots.docs.length - 1]; //console.log("last", lastVisible);
           // Construct a new query starting at this document,
           // get the next 10 orders.
-          next = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.query)((0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.collection)(db, "checkout_table"), (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.orderBy)("time", 'asc'), (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.startAfter)(lastVisible), (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.limit)(25)); //console.log(querySnapshot)
+          next = (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.query)((0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.collection)(db, "checkout_table"), (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.orderBy)("time", 'desc'), (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.startAfter)(lastVisible), (0,firebase_firestore__WEBPACK_IMPORTED_MODULE_2__.limit)(25)); //console.log(querySnapshot)
           documentSnapshots.forEach(function (doc) {
             // console.log(`${doc.id} => ${doc.data()}`);
             items += '<tr><td>' + i + '</td><td>' + doc.data().order_id + '</td><<td>' + doc.data().your_name + '</td><td>' + doc.data().appartment_name + '</td></td><td>' + doc.data().time + '</td><td><button type="button" class="btn btn-block btn-info view-btn" id="' + doc.data().order_id + '-' + doc.id + '">View</button></td></td></tr>';
