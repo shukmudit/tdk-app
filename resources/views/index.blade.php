@@ -41,7 +41,7 @@
 </div>
   <div class="hero_area">
     <div class="bg-box">
-      <img src="{{ asset('images/hero-bg.jpg') }}" alt="">
+      <img src="{{ asset('images/bread.png')}}" alt="">
     </div>
     <!-- header section strats -->
     <header class="header_section">
