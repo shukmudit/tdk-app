@@ -410,6 +410,7 @@
         <li data-filter=".pasta">Pasta</li>
         <li data-filter=".sides">Sides</li>
         <li data-filter=".breads">Breads</li>
+        <li data-filter=".cakes">Cakes</li>
       </ul>
 
       <div class="menu-listing">
