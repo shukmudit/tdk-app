@@ -207,7 +207,7 @@
               <li class="nav-item">
                 <a href="/admin/list_products" class="nav-link list-product">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Order List </p>
+                  <p>List Product</p>
                 </a>
               </li>
               
